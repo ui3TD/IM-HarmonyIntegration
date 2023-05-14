@@ -23,8 +23,9 @@ Pre-reqs:
 - Unstripped libraries of: mscorlib.dll, System.Configuration.dll, System.Core.dll, System.dll, UnityEngine.CoreModule.dll, UnityEngine.SharedInternalsModule.dll
 - Edit HarmonyIntegration.csproj to point to your copy of Idol Manager's Assembly-CSharp.dll file
 
-1. Obtain [BepInEx](https://github.com/BepInEx/BepInEx) and copy into game directory
-2. Run the game to initialize BepInEx
-3. Build HarmonyIntegration
-4. Copy the dll into BepInEx plugin directory
-5. Put unstripped libraries into UnstrippedLibs folder in the Idol Manager directory
+1. Put unstripped libraries into UnstrippedLibs folder in the Idol Manager directory
+2. Obtain [BepInEx](https://github.com/BepInEx/BepInEx) and copy into game directory
+3. Modify doorstop_config.ini to point to UnstrippedLibs
+4. Run the game to initialize BepInEx
+5. Build HarmonyIntegration
+6. Copy the dll into BepInEx plugin directory
