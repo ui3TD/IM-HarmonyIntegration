@@ -18,9 +18,11 @@ Delete the following files and directories from your Idol Manager directory...
 5. doorstop_config.ini
 
 ## BUILDING FROM SOURCE:
-You must have .NET Framework 4.6.
-You must have unstripped libraries of: mscorlib.dll, System.Configuration.dll, System.Core.dll, System.dll, UnityEngine.CoreModule.dll, UnityEngine.SharedInternalsModule.dll
-You must edit HarmonyIntegration.csproj to point to the game's Assembly-CSharp.dll file
+Pre-reqs:
+- .NET Framework 4.6.
+- Unstripped libraries of: mscorlib.dll, System.Configuration.dll, System.Core.dll, System.dll, UnityEngine.CoreModule.dll, UnityEngine.SharedInternalsModule.dll
+- Edit HarmonyIntegration.csproj to point to your copy of Idol Manager's Assembly-CSharp.dll file
+
 1. Download [BepInEx](https://github.com/BepInEx/BepInEx) and copy into game directory
 2. Run the game to initialize BepInEx
 4. Copy the dll into BepInEx plugin directory
