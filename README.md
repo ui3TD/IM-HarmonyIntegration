@@ -23,7 +23,8 @@ Pre-reqs:
 - Unstripped libraries of: mscorlib.dll, System.Configuration.dll, System.Core.dll, System.dll, UnityEngine.CoreModule.dll, UnityEngine.SharedInternalsModule.dll
 - Edit HarmonyIntegration.csproj to point to your copy of Idol Manager's Assembly-CSharp.dll file
 
-1. Download [BepInEx](https://github.com/BepInEx/BepInEx) and copy into game directory
+1. Obtain [BepInEx](https://github.com/BepInEx/BepInEx) and copy into game directory
 2. Run the game to initialize BepInEx
+3. Build HarmonyIntegration
 4. Copy the dll into BepInEx plugin directory
 5. Put unstripped libraries into UnstrippedLibs folder in the Idol Manager directory
