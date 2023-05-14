@@ -10,7 +10,7 @@ Mod devs must make sure that "patch.dll" is a class library that includes Harmon
 2. Paste everything into the Idol Manager folder
 
 ## UNINSTALL INSTRUCTIONS:
-Delete the following files and directories...
+Delete the following files and directories from your Idol Manager directory...
 1. HarmonyIntegration README.txt
 2. BepInEx
 3. UnstrippedLibs
