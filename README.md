@@ -1,13 +1,13 @@
 # IM-HarmonyIntegration
 This [BepInEx](https://github.com/BepInEx/BepInEx) plugin integrates [Harmony](https://github.com/pardeike/Harmony) into Idol Manager. You need this installed to activate any Harmony mods for Idol Manager on Steam Workshop.
 
-The in-game mod manager has been patched to search for "patch.dll" in each mod's root directory and load it through Harmony. Toggling mods in-game will enable/disable the Harmony patches as expected. 
+The in-game mod manager has been patched to search for "patch.dll" in each mod's folder and load it through Harmony. Toggling mods in-game will enable/disable the Harmony patches as expected. 
 
 Mod devs must make sure that "patch.dll" is a C# library built on .NET 4.6 that includes Harmony compatible patches.
 
 ## INSTALL INSTRUCTIONS: 
 1. Download the latest release of IM-HarmonyIntegration [HERE](https://github.com/ui3TD/IM-HarmonyIntegration/releases)
-2. Paste everything into the Idol Manager folder
+2. Paste everything into the Idol Manager directory
 
 ## UNINSTALL INSTRUCTIONS:
 Delete the following files and directories from your Idol Manager directory...
