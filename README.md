@@ -6,7 +6,7 @@ The in-game mod manager has been patched to search for "patch.dll" in each mod's
 Mod devs must make sure that "patch.dll" is a C# library built on .NET 4.6 that includes Harmony compatible patches.
 
 ## INSTALL INSTRUCTIONS: 
-1. Download **[HERE](https://github.com/ui3TD/IM-HarmonyIntegration/releases)**
+1. Download HarmonyIntegration.Idol.Manager.zip **[HERE](https://github.com/ui3TD/IM-HarmonyIntegration/releases)**
 2. Paste everything into the Idol Manager directory
 
 ## UNINSTALL INSTRUCTIONS:
