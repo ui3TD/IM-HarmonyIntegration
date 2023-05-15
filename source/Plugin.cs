@@ -47,7 +47,7 @@ namespace HarmonyIntegration
                     if (mod.Enabled)
                     {
                         Assembly patchDll = Assembly.LoadFrom(patchFile);
-
+                        Harmony.UnpatchID(modHarmonyID);
                         Harmony.CreateAndPatchAll(patchDll, modHarmonyID);
 
                         Plugin.Log.LogInfo($"Mod patch loaded: " + patchDll.FullName);
@@ -91,6 +91,7 @@ namespace HarmonyIntegration
                 if (mod.Enabled)
                 {
                     var patchDll = Assembly.LoadFrom(patchFile);
+                    Harmony.UnpatchID(modHarmonyID);
                     Harmony.CreateAndPatchAll(patchDll, modHarmonyID);
 
                     Plugin.Log.LogInfo($"Mod patch loaded: " + patchDll.FullName);
