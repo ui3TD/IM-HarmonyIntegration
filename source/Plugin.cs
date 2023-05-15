@@ -1,8 +1,9 @@
-﻿using BepInEx;
+using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
 using System.IO;
 using System.Reflection;
+using SimpleJSON;
 
 namespace HarmonyIntegration
 {
@@ -34,21 +35,26 @@ namespace HarmonyIntegration
                 string modDir = mod.Path;
                 string modName = mod.ModName;
                 string modTitle = mod.Title;
-                var patchFile = Path.Combine(modDir.TrimEnd(new char[] { Path.DirectorySeparatorChar }), "patch.dll");
 
-                if (File.Exists(patchFile))
+                string modInfoFile = Path.Combine(modDir.TrimEnd(new char[] { Path.DirectorySeparatorChar }), "info.json");
+                JSONNode modInfo = mainScript.ProcessInboundData(File.ReadAllText(modInfoFile));
+                string modHarmonyID = modInfo["HarmonyID"];
+
+                var patchFile = Path.Combine(modDir.TrimEnd(new char[] { Path.DirectorySeparatorChar }), modHarmonyID + ".dll");
+
+                if (modHarmonyID != null && File.Exists(patchFile))
                 {
                     if (mod.Enabled)
                     {
-                        var patchDll = Assembly.LoadFrom(patchFile);
-                        var harmony = new Harmony(modName);
-                        harmony.PatchAll(patchDll);
-                        Plugin.Log.LogInfo($"Mod patch has been loaded: " + modTitle);
+                        Assembly patchDll = Assembly.LoadFrom(patchFile);
+
+                        Harmony.CreateAndPatchAll(patchDll, modHarmonyID);
+
+                        Plugin.Log.LogInfo($"Mod patch loaded: " + patchDll.FullName);
                     }
                     else
                     {
-                        Harmony.UnpatchID(modName);
-                        Plugin.Log.LogInfo($"Mod patch has been unloaded: " + modTitle);
+                        Plugin.Log.LogInfo($"Mod patch not enabled: " + modTitle);
                     }
                 }
                 else
@@ -73,21 +79,26 @@ namespace HarmonyIntegration
             string modDir = mod.Path;
             string modTitle = mod.Title;
             Plugin.Log.LogInfo($"modDir: " + modDir);
-            var patchFile = Path.Combine(modDir.TrimEnd(new char[] { Path.DirectorySeparatorChar }), "patch.dll");
 
-            if (File.Exists(patchFile))
+            string modInfoFile = Path.Combine(modDir.TrimEnd(new char[] { Path.DirectorySeparatorChar }), "info.json");
+            JSONNode modInfo = mainScript.ProcessInboundData(File.ReadAllText(modInfoFile));
+            string modHarmonyID = modInfo["HarmonyID"];
+
+            var patchFile = Path.Combine(modDir.TrimEnd(new char[] { Path.DirectorySeparatorChar }), modHarmonyID + ".dll");
+
+            if (modHarmonyID != null && File.Exists(patchFile))
             {
                 if (mod.Enabled)
                 {
                     var patchDll = Assembly.LoadFrom(patchFile);
-                    var harmony = new Harmony(ModName);
-                    harmony.PatchAll(patchDll);
-                    Plugin.Log.LogInfo($"Mod patch has been loaded: " + modTitle);
+                    Harmony.CreateAndPatchAll(patchDll, modHarmonyID);
+
+                    Plugin.Log.LogInfo($"Mod patch loaded: " + patchDll.FullName);
                 }
                 else
                 {
-                    Harmony.UnpatchID(ModName);
-                    Plugin.Log.LogInfo($"Mod patch has been unloaded: " + modTitle);
+                    Harmony.UnpatchID(modHarmonyID);
+                    Plugin.Log.LogInfo($"Mod patch unloaded: " + modHarmonyID);
                 }
             }
             else
