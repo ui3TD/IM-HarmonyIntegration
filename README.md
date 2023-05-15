@@ -8,7 +8,7 @@ Mod devs must make sure that the .dll is a C# library built on .NET 4.6 that inc
 See [IM-FastForward](https://github.com/ui3TD/IM-FastForward) for an example and tutorial for creating compatible mods.
 
 ## INSTALL INSTRUCTIONS: 
-The release is packaged for Windows only.
+The release is packaged for **Windows** x64 only.
 
 1. Download HarmonyIntegration.Idol.Manager.zip **[HERE](https://github.com/ui3TD/IM-HarmonyIntegration/releases)**
 2. Paste everything into the Idol Manager directory
