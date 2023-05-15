@@ -3,7 +3,7 @@ This [BepInEx](https://github.com/BepInEx/BepInEx) plugin integrates [Harmony](h
 
 The in-game mod manager has been patched to search for "patch.dll" in each mod's folder and load it through Harmony. Toggling mods in-game will enable/disable the Harmony patches as expected. 
 
-Mod devs must make sure that "patch.dll" is a C# library built on .NET 4.6 that includes Harmony compatible patches.
+Mod devs must make sure that "patch.dll" is a C# library built on .NET 4.6 that includes Harmony compatible patches. Do not initiate the Harmony instance in your mod (i.e. do not include an Awake() method blank). IM-HarmonyIntegration will do it for you.
 
 ## INSTALL INSTRUCTIONS: 
 1. Download HarmonyIntegration.Idol.Manager.zip **[HERE](https://github.com/ui3TD/IM-HarmonyIntegration/releases)**
