@@ -10,7 +10,7 @@ See [IM-FastForward](https://github.com/ui3TD/IM-FastForward) for an example and
 ## INSTALL INSTRUCTIONS: 
 The release is packaged for **Windows** x64 only.
 
-1. Download HarmonyIntegration.Idol.Manager.zip **[HERE](https://github.com/ui3TD/IM-HarmonyIntegration/releases)**
+1. Download IM-HarmonyIntegration.zip **[HERE](https://github.com/ui3TD/IM-HarmonyIntegration/releases)**
 2. Paste everything into the Idol Manager directory
 
 ## UNINSTALL INSTRUCTIONS:
