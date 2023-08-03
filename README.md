@@ -14,7 +14,9 @@ The release is packaged for **Windows** x64 only.
 2. Paste everything into the Idol Manager directory
 
 Find the Idol Manager directory by right clicking Idol Manager in your Steam Library and selecting "Browse Local Files" like so:
+<p align="left">
 <img src="https://i.imgur.com/RnD3WjU.jpg" />
+</p>
 
 ## UNINSTALL INSTRUCTIONS:
 Delete the following files and directories from your Idol Manager directory...
