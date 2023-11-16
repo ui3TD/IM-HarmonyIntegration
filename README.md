@@ -22,7 +22,7 @@ Find the Idol Manager directory by right clicking Idol Manager in your Steam Lib
 ## INSTALL INSTRUCTIONS (MacOS/Linux): 
 
 1. Install BepInEx by following **Steps 1-3** from the official instructions [here](https://docs.bepinex.dev/articles/advanced/steam_interop.html?tabs=tabid-2).
-2. After completing step 3 in the instructions linnked above, open run_bepinex.sh and edit the line `export DOORSTOP_CORLIB_OVERRIDE_PATH=""` to be `export DOORSTOP_CORLIB_OVERRIDE_PATH="$BASEDIR/UnstrippedLibs"`
+2. After completing step 3 in the instructions linked above, open run_bepinex.sh and edit the line `export DOORSTOP_CORLIB_OVERRIDE_PATH=""` to be `export DOORSTOP_CORLIB_OVERRIDE_PATH="$BASEDIR/UnstrippedLibs"`
 3. Download IM-HarmonyIntegration.zip **[HERE](https://github.com/ui3TD/IM-HarmonyIntegration/releases)**
 4. Unzip everything into the Idol Manager directory where you installed BepInEx.
 
