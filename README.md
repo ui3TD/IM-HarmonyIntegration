@@ -7,8 +7,9 @@ Mod devs must make sure that the .dll is a C# library built on .NET 4.6 that inc
 
 See [IM-FastForward](https://github.com/ui3TD/IM-FastForward) for an example and tutorial for creating compatible mods.
 
-## INSTALL INSTRUCTIONS (Windows): 
-The release is packaged for **Windows** x64 only.
+## INSTALL INSTRUCTIONS (Windows x64): 
+
+MacOS or Linux users should see the section below instead.
 
 1. Download IM-HarmonyIntegration.zip **[HERE](https://github.com/ui3TD/IM-HarmonyIntegration/releases)**
 2. Paste everything into the Idol Manager directory
@@ -19,7 +20,6 @@ Find the Idol Manager directory by right clicking Idol Manager in your Steam Lib
 </p>
 
 ## INSTALL INSTRUCTIONS (MacOS/Linux): 
-The release is packaged for **Windows** x64 only.
 
 1. Install BepInEx by following **Steps 1-3** from the official instructions [here](https://docs.bepinex.dev/articles/advanced/steam_interop.html?tabs=tabid-2).
 2. After completing step 3 in the instructions linnked above, open run_bepinex.sh and edit the line `export DOORSTOP_CORLIB_OVERRIDE_PATH=""` to be `export DOORSTOP_CORLIB_OVERRIDE_PATH="$BASEDIR/UnstrippedLibs"`
