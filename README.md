@@ -12,7 +12,7 @@ See [IM-FastForward](https://github.com/ui3TD/IM-FastForward) for an example and
 These instructions re for Windows x64. MacOS or Linux users should see the section below instead. 
 
 1. Download IM-HarmonyIntegration.zip **[HERE](https://github.com/ui3TD/IM-HarmonyIntegration/releases)**
-2. Paste everything into the Idol Manager directory
+2. Unzip everything into the Idol Manager directory
 
 Find the Idol Manager directory by right clicking Idol Manager in your Steam Library and selecting "Browse Local Files" like so:
 <p align="left">
@@ -24,7 +24,7 @@ Find the Idol Manager directory by right clicking Idol Manager in your Steam Lib
 1. Install BepInEx by following **Steps 1-3** from the official instructions [here](https://docs.bepinex.dev/articles/advanced/steam_interop.html?tabs=tabid-2).
 2. After completing step 3 in the instructions linnked above, open run_bepinex.sh and edit the line `export DOORSTOP_CORLIB_OVERRIDE_PATH=""` to be `export DOORSTOP_CORLIB_OVERRIDE_PATH="$BASEDIR/UnstrippedLibs"`
 3. Download IM-HarmonyIntegration.zip **[HERE](https://github.com/ui3TD/IM-HarmonyIntegration/releases)**
-4. Paste everything into the Idol Manager directory where you installed BepInEx.
+4. Unzip everything into the Idol Manager directory where you installed BepInEx.
 
 ## UNINSTALL INSTRUCTIONS:
 Delete the following files and directories from your Idol Manager directory...
