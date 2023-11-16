@@ -9,7 +9,7 @@ See [IM-FastForward](https://github.com/ui3TD/IM-FastForward) for an example and
 
 ## INSTALL INSTRUCTIONS (Windows x64): 
 
-MacOS or Linux users should see the section below instead.
+These instructions re for Windows x64. MacOS or Linux users should see the section below instead. 
 
 1. Download IM-HarmonyIntegration.zip **[HERE](https://github.com/ui3TD/IM-HarmonyIntegration/releases)**
 2. Paste everything into the Idol Manager directory
