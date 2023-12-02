@@ -1,7 +1,7 @@
 # IM-HarmonyIntegration
 This [BepInEx](https://github.com/BepInEx/BepInEx) plugin integrates [Harmony](https://github.com/pardeike/Harmony) into Idol Manager. You need this installed to activate any Harmony mods for Idol Manager on Steam Workshop.
 
-The in-game mod manager has been patched to search for and load _HarmonyID_.dll in each mod's folder, where "_HarmonyID_" is a field in the mod's info.json file. Toggling mods in-game will enable/disable the Harmony patches as expected. 
+The in-game mod manager has been patched to search for and load `<HarmonyID>.dll` in each mod's folder, where `HarmonyID` is a field in the mod's `info.json` file. Toggling mods in-game will enable/disable the Harmony patches as expected. 
 
 [The Steam Workshop page of IM-HarmonyIntegration](https://steamcommunity.com/sharedfiles/filedetails/?id=3102983863) done absolutely nothing to the game, it was simply act as a prerequisites items for mods that uses this plugin and due to the fact there is no way to actually copy/modify a game's installation folder with Steam Workshop.
 
@@ -34,20 +34,20 @@ Delete the following files and directories from your Idol Manager directory...
 # BUILDING FROM SOURCE:
 ## Pre-reqs:
 - .NET Framework 4.6.
-- Unstripped libraries of: mscorlib.dll, System.Configuration.dll, System.Core.dll, System.dll, UnityEngine.CoreModule.dll, UnityEngine.SharedInternalsModule.dll
-- Edit HarmonyIntegration.csproj to point to your copy of Idol Manager's Assembly-CSharp.dll and Assembly-CSharp-firstpass.dll file
+- Unstripped libraries of: `mscorlib.dll`, `System.Configuration.dll`, `System.Core.dll`, `System.dll`, `UnityEngine.CoreModule.dll`, `UnityEngine.SharedInternalsModule.dll`
+- Edit `HarmonyIntegration.csproj` to point to your copy of Idol Manager's `Assembly-CSharp.dll` and `Assembly-CSharp-firstpass.dll` file
 ## Steps
-1. Put unstripped libraries into UnstrippedLibs folder in the Idol Manager directory
+1. Put unstripped libraries into `UnstrippedLibs` folder in the Idol Manager directory
 2. Obtain [BepInEx](https://github.com/BepInEx/BepInEx) and copy into game directory
-3. Modify doorstop_config.ini to point to UnstrippedLibs
+3. Modify `doorstop_config.ini` to point to `UnstrippedLibs` folder
 4. Run the game to initialize BepInEx
 5. Build HarmonyIntegration
-6. Copy the dll into BepInEx plugin directory
+6. Copy the dll into BepInEx `plugin` directory
 
 # CREATING MODS
 See [IM-FastForward](https://github.com/ui3TD/IM-FastForward) for an example and tutorial for creating compatible mods.
 
-Mod devs must make sure that the .dll is a C# library built on .NET 4.6 that includes Harmony compatible patches. Do not initiate the Harmony instance in your mod (i.e. do not include an Awake() method). IM-HarmonyIntegration controls all patching/unpatching operations.
+Mod devs must make sure that the `.dll` is a `C#` library built on `.NET 4.6` that includes Harmony compatible patches. Do not initiate the Harmony instance in your mod (i.e. do not include an `Awake()` method). IM-HarmonyIntegration controls all patching/unpatching operations.
 
 Starting on version 1.2, it is now possible to use multiple dll patches.
 
