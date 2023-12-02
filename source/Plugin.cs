@@ -28,25 +28,62 @@ namespace HarmonyIntegration
     {
         static void Postfix()
         {
+            Plugin.Log.LogInfo($"==============================");
             Plugin.Log.LogInfo($"Postfix Injected Successfully.");
+            Plugin.Log.LogInfo($"POSTFIX LOGGING START");
+            Plugin.Log.LogInfo($"==============================");
+            int modcount = 0;
             foreach (Mods._mod mod in Mods._Mods)
             {
+                
                 mod.Enabled = staticVars.Settings.IsModEnabled(mod.ModName);
                 string modDir = mod.Path;
                 string modName = mod.ModName;
                 string modTitle = mod.Title;
 
+                Plugin.Log.LogInfo($"==============================");
+                Plugin.Log.LogInfo($"MOD INDEX: [" + modcount + "] - CURRENT MOD: " + modTitle);
+                modcount++;
+
                 string modInfoFile = Path.Combine(modDir.TrimEnd(new char[] { Path.DirectorySeparatorChar }), "info.json");
                 JSONNode modInfo = mainScript.ProcessInboundData(File.ReadAllText(modInfoFile));
-                string modHarmonyID = modInfo["HarmonyID"];
-
-                var patchFile = Path.Combine(modDir.TrimEnd(new char[] { Path.DirectorySeparatorChar }), modHarmonyID + ".dll");
-
-                if (modHarmonyID != null && File.Exists(patchFile))
+                
+                var modHarmonyID = modInfo["HarmonyID"];
+                var dlls = modHarmonyID.Count;
+                
+                if (modHarmonyID != null && dlls > 0)
                 {
                     if (mod.Enabled)
                     {
-                        Assembly patchDll = Assembly.LoadFrom(patchFile);
+                        for (int i = 0; i < dlls; i++)
+                        {
+                            var patchFile = Path.Combine(modDir.TrimEnd(new char[] { Path.DirectorySeparatorChar }), modHarmonyID[i] + ".dll");
+
+                            if (File.Exists(patchFile))
+                            {
+                                Assembly patchDll = Assembly.LoadFrom(patchFile);
+                                Harmony.UnpatchID(modHarmonyID[i]);
+                                Harmony.CreateAndPatchAll(patchDll, modHarmonyID[i]);
+
+                                Plugin.Log.LogInfo($"Mod patch loaded: " + modTitle + " - " + patchDll.FullName + " - Module No: " + i);
+                            }
+                            else
+                            {
+                                Plugin.Log.LogInfo($"Module index not found: " + i + " | Mod: " + modTitle);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Plugin.Log.LogInfo($"Mod patch not enabled: " + modTitle);
+                    }
+                }
+                else if (modHarmonyID != null)
+                {
+                    if (mod.Enabled)
+                    {
+                        var patchFile = Path.Combine(modDir.TrimEnd(new char[] { Path.DirectorySeparatorChar }), modHarmonyID + ".dll");
+                        var patchDll = Assembly.LoadFrom(patchFile);
                         Harmony.UnpatchID(modHarmonyID);
                         Harmony.CreateAndPatchAll(patchDll, modHarmonyID);
 
@@ -59,9 +96,12 @@ namespace HarmonyIntegration
                 }
                 else
                 {
-                    Plugin.Log.LogInfo($"No patch found: " + modTitle);
-                }
+                    Plugin.Log.LogInfo($"No mod patch available for: " + modTitle);
+                }             
             }
+            Plugin.Log.LogInfo($"******************************");
+            Plugin.Log.LogInfo($"POSTFIX LOGGING END");
+            Plugin.Log.LogInfo($"******************************");
         }
     }
 
@@ -71,25 +111,56 @@ namespace HarmonyIntegration
     {
         static void Postfix(string ModName)
         {
-            Plugin.Log.LogInfo($"Postfix Injected Successfully.");
-            Plugin.Log.LogInfo($"ModName: " + ModName);
             Mods._mod mod = Mods.GetMod(ModName);
 
             mod.Enabled = staticVars.Settings.IsModEnabled(mod.ModName);
             string modDir = mod.Path;
             string modTitle = mod.Title;
+            Plugin.Log.LogInfo($"==============================");
+            Plugin.Log.LogInfo($"Postfix Injected Successfully.");
+            Plugin.Log.LogInfo($"POSTFIX LOGGING START");
+            Plugin.Log.LogInfo($"==============================");
+            Plugin.Log.LogInfo($"CURRENT MOD: " + modTitle);
             Plugin.Log.LogInfo($"modDir: " + modDir);
 
             string modInfoFile = Path.Combine(modDir.TrimEnd(new char[] { Path.DirectorySeparatorChar }), "info.json");
             JSONNode modInfo = mainScript.ProcessInboundData(File.ReadAllText(modInfoFile));
-            string modHarmonyID = modInfo["HarmonyID"];
 
-            var patchFile = Path.Combine(modDir.TrimEnd(new char[] { Path.DirectorySeparatorChar }), modHarmonyID + ".dll");
-
-            if (modHarmonyID != null && File.Exists(patchFile))
+            var modHarmonyID = modInfo["HarmonyID"];
+            var dlls = modHarmonyID.Count;
+            
+            if (modHarmonyID != null && dlls > 0)
             {
                 if (mod.Enabled)
                 {
+                    for (int i = 0; i < dlls; i++)
+                    {
+                        var patchFile = Path.Combine(modDir.TrimEnd(new char[] { Path.DirectorySeparatorChar }), modHarmonyID[i] + ".dll");
+                        if (File.Exists(patchFile))
+                        {
+                            Assembly patchDll = Assembly.LoadFrom(patchFile);
+                            Harmony.UnpatchID(modHarmonyID[i]);
+                            Harmony.CreateAndPatchAll(patchDll, modHarmonyID[i]);
+
+                            Plugin.Log.LogInfo($"Mod patch loaded: " + modTitle + " - " + patchDll.FullName + " - Module No: " + i);
+
+                        }
+                        else
+                        {
+                            Plugin.Log.LogInfo($"Module index not found: " + i + " | Mod: " + modTitle);
+                        }
+                    }
+                }
+                else
+                {
+                    Plugin.Log.LogInfo($"Mod patch not enabled: " + modTitle);
+                }
+            }
+            else if (modHarmonyID != null)
+            {
+                if (mod.Enabled)
+                {
+                    var patchFile = Path.Combine(modDir.TrimEnd(new char[] { Path.DirectorySeparatorChar }), modHarmonyID + ".dll");
                     var patchDll = Assembly.LoadFrom(patchFile);
                     Harmony.UnpatchID(modHarmonyID);
                     Harmony.CreateAndPatchAll(patchDll, modHarmonyID);
@@ -98,14 +169,16 @@ namespace HarmonyIntegration
                 }
                 else
                 {
-                    Harmony.UnpatchID(modHarmonyID);
-                    Plugin.Log.LogInfo($"Mod patch unloaded: " + modHarmonyID);
+                    Plugin.Log.LogInfo($"Mod patch not enabled: " + modTitle);
                 }
             }
             else
             {
-                Plugin.Log.LogInfo($"No patch found: " + modTitle);
+                Plugin.Log.LogInfo($"No mod patch available for: " + modTitle);
             }
+            Plugin.Log.LogInfo($"******************************");
+            Plugin.Log.LogInfo($"POSTFIX LOGGING END");
+            Plugin.Log.LogInfo($"******************************");
         }
     }
 }
