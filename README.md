@@ -61,6 +61,7 @@ It is a must to ask the original creator permission and you must state what othe
 Duplicate patches may lead to issues and/or other unexpected problems because there is absolutely no way (so far) to specifically define patches priority.
 
 To use multiple patches, simply write the `HarmonyID` field in your mod's `info.json` file in the same way like using multiple tags.
+
 ```"HarmonyID": ["im.creator.patch1", "im.creator.patch2", "im.creator2.patch1"]```
 
 ## LOGGING
