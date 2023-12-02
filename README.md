@@ -18,7 +18,6 @@ Find the Idol Manager directory by right clicking Idol Manager in your Steam Lib
 </p>
 
 ## MacOS/Linux: 
-
 1. Install BepInEx by following **Steps 1-3** from the official instructions [here](https://docs.bepinex.dev/articles/advanced/steam_interop.html?tabs=tabid-2).
 2. After completing step 3 in the instructions linked above, open run_bepinex.sh and edit the line `export DOORSTOP_CORLIB_OVERRIDE_PATH=""` to be `export DOORSTOP_CORLIB_OVERRIDE_PATH="$BASEDIR/UnstrippedLibs"`
 3. Download IM-HarmonyIntegration.zip **[HERE](https://github.com/ui3TD/IM-HarmonyIntegration/releases)**
@@ -47,14 +46,18 @@ Delete the following files and directories from your Idol Manager directory...
 
 # CREATING MODS
 See [IM-FastForward](https://github.com/ui3TD/IM-FastForward) for an example and tutorial for creating compatible mods.
+
 Mod devs must make sure that the .dll is a C# library built on .NET 4.6 that includes Harmony compatible patches. Do not initiate the Harmony instance in your mod (i.e. do not include an Awake() method). IM-HarmonyIntegration controls all patching/unpatching operations.
+
 Starting on version 1.2, it is now possible to use multiple dll patches.
 
 ## USING MULTIPLE PATCHES
 The only use case for this is if you are creating a large mod and want to incorporates other people patch that has its own `JSON` files, but you want to use your own version of `JSON` files.
+
 For example, mod `ABC` adds more single's genre but their description on its `JSON` files doesn't fit with your mod, so you want to use its dll patch but not its `JSON` description, hence you use its dll in your mod and add it in `HarmonyID` field in the mod's `info.json` file.
 
 It is a must to ask the original creator permission and you must state what mods you used in your ``, so people won't have duplicate mods. 
+
 Duplicate patches may lead to issues and/or other unexpected problems because there is absolutely no way (so far) to specifically define patches priority.
 
 To use multiple patches, simply write the `HarmonyID` field in your mod's `info.json` file in the same way like using multiple tags.
