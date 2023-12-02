@@ -54,9 +54,9 @@ Starting on version 1.2, it is now possible to use multiple dll patches.
 ## USING MULTIPLE PATCHES
 There is (most probably) only 2 (two) use case to actually use this approach:
 - You are creating a large mod and want to incorporates other people patch that has its own JSON files, but you want to use your own version of JSON files.
- - For example, mod `ABC` adds more single's genre but their description on its JSON files doesn't fit with your mod, so you want to use its dll patch but not its JSON description, hence you use its dll in your mod and add it in HarmonyID field in the mod's info.json file.
- - It is a must to ask the original creator permission and you must state what other mods you used in your workshop page, so people won't have duplicate mods.
- - If you don't need to do this, it is HIGHLY ENCOURAGED to stick only using a patch created by yourself or using the original workshop item as the requirements in your workshop item.
+  - For example, mod `ABC` adds more single's genre but their description on its JSON files doesn't fit with your mod, so you want to use its dll patch but not its JSON description, hence you use its dll in your mod and add it in HarmonyID field in the mod's info.json file.
+  - It is a must to ask the original creator permission and you must state what other mods you used in your workshop page, so people won't have duplicate mods.
+  - If you don't need to do this, it is HIGHLY ENCOURAGED to stick only using a patch created by yourself or using the original workshop item as the requirements in your workshop item.
 - You prefer to split-patch the mod, for example you want to split patches for idols-related method and image-related method.
 
 **Duplicate patches may lead to issues and/or other unexpected problems because there is absolutely no way (so far) to specifically define patches priority.**
