@@ -14,7 +14,7 @@ These instructions re for Windows x64. MacOS or Linux users should see the secti
 1. Download IM-HarmonyIntegration.zip **[HERE](https://github.com/ui3TD/IM-HarmonyIntegration/releases)**
 2. Extract the contents of the zip file into the Idol Manager directory. If done correctly, `winhttp.dll` should be in the same directory as `IM.exe`.
 
-Find the Idol Manager directory by right clicking Idol Manager in your Steam Library and selecting "Browse Local Files" like so:
+You can find the Idol Manager directory by right clicking Idol Manager in your Steam Library and selecting "Browse Local Files" like so:
 <p align="left">
 <img src="https://i.imgur.com/RnD3WjU.jpg" />
 </p>
