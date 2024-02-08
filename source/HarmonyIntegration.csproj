@@ -17,6 +17,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Unity" Version="5.11.10" />
     <PackageReference Include="UnityEngine.Modules" Version="2019.4.23" IncludeAssets="compile" />
   </ItemGroup>
   
@@ -26,7 +27,10 @@
 
     <ItemGroup>
 	    <Reference Include="Assembly-CSharp">
-		    <HintPath>dll\Assembly-CSharp.dll</HintPath>
+		    <HintPath>absolute\path\to\your\IM\copy\IM_Data\Managed\Assembly-CSharp.dll</HintPath>
+	    </Reference>
+	    <Reference Include="Assembly-CSharp-firstpass">
+	      <HintPath>absolute\path\to\your\IM\copy\IM_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
 	    </Reference>
     </ItemGroup>
 </Project>
