@@ -1,15 +1,11 @@
 # IM-HarmonyIntegration
 This [BepInEx](https://github.com/BepInEx/BepInEx) plugin integrates [Harmony](https://github.com/pardeike/Harmony) into Idol Manager. You need this installed to activate any Harmony mods for Idol Manager on Steam Workshop.
 
-The in-game mod manager has been patched to search for and load _HarmonyID_.dll in each mod's folder, where "_HarmonyID_" is a field in the mod's info.json file. Toggling mods in-game will enable/disable the Harmony patches as expected. 
+Visit the [Idol Manager Official Discord](https://discord.com/invite/83ywHbP) to discuss.
 
-Mod devs must make sure that the .dll is a C# library built on .NET 4.6 that includes Harmony compatible patches. Do not initiate the Harmony instance in your mod (i.e. do not include an Awake() method). IM-HarmonyIntegration controls all patching/unpatching operations.
+## INSTALL INSTRUCTIONS (Windows): 
 
-See [IM-FastForward](https://github.com/ui3TD/IM-FastForward) for an example and tutorial for creating compatible mods.
-
-## INSTALL INSTRUCTIONS (Windows x64): 
-
-These instructions re for Windows x64. MacOS or Linux users should see the section below instead. 
+These instructions are for Windows (x64). MacOS or Linux users should see the section below instead. 
 
 1. Download IM-HarmonyIntegration.zip **[HERE](https://github.com/ui3TD/IM-HarmonyIntegration/releases)**
 2. Extract the contents of the zip file into the Idol Manager directory. If done correctly, `winhttp.dll` should be in the same directory as `IM.exe`.
@@ -22,7 +18,7 @@ You can find the Idol Manager directory by right clicking Idol Manager in your S
 ## INSTALL INSTRUCTIONS (MacOS/Linux): 
 
 1. Install BepInEx by following **Steps 1-3** from the official instructions [here](https://docs.bepinex.dev/articles/advanced/steam_interop.html?tabs=tabid-2).
-2. After completing step 3 in the instructions linked above, open run_bepinex.sh and edit the line `export DOORSTOP_CORLIB_OVERRIDE_PATH=""` to be `export DOORSTOP_CORLIB_OVERRIDE_PATH="$BASEDIR/UnstrippedLibs"`
+2. After completing step 3 in the instructions linked above, open run_bepinex.sh and edit the line `dll_search_path_override=""` to be `dll_search_path_override="$BASEDIR/UnstrippedLibs"`
 3. Download IM-HarmonyIntegration.zip **[HERE](https://github.com/ui3TD/IM-HarmonyIntegration/releases)**
 4. Extract the contents of the zip file into the Idol Manager directory where you installed BepInEx.
 
@@ -33,6 +29,14 @@ Delete the following files and directories from your Idol Manager directory...
 3. UnstrippedLibs
 4. winhttp.dll
 5. doorstop_config.ini
+
+## HOW IT WORKS
+
+This plugin patches the in-game mod manager to search for and load _HarmonyID_.dll in each mod's folder, where "_HarmonyID_" is a field in the mod's info.json file. Toggling mods in-game will enable/disable the Harmony patches as expected. 
+
+Mod devs must make sure that the .dll is a C# library built on .NET 4.6 that includes Harmony compatible patches. Do not initiate the Harmony instance in your mod (i.e. do not include an Awake() method). IM-HarmonyIntegration controls all patching/unpatching operations.
+
+See [IM-FastForward](https://github.com/ui3TD/IM-FastForward) for an example and tutorial for creating compatible mods.
 
 ## BUILDING FROM SOURCE:
 Pre-reqs:
