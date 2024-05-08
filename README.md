@@ -25,7 +25,7 @@ If done correctly, your Idol Manager directory should look like this:
 1. Install BepInEx by following **Steps 1-3** from the official instructions [here](https://docs.bepinex.dev/articles/advanced/steam_interop.html?tabs=tabid-2).
 2. After completing step 3 in the instructions linked above, open run_bepinex.sh and edit the line `dll_search_path_override=""` to be `dll_search_path_override="$BASEDIR/UnstrippedLibs"`
 3. Download IM-HarmonyIntegration.zip **[HERE](https://github.com/ui3TD/IM-HarmonyIntegration/releases)**
-4. Extract the contents of the zip file into the Idol Manager directory where you installed BepInEx. Decline to overwrite existing files.
+4. Extract the contents of the zip file into the Idol Manager directory where you installed BepInEx. **Decline** to overwrite existing files.
 
 ## UNINSTALL INSTRUCTIONS:
 Delete the following files and directories from your Idol Manager directory...
