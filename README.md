@@ -22,10 +22,12 @@ If done correctly, your Idol Manager directory should look like this:
 
 ## INSTALL INSTRUCTIONS (MacOS/Linux): 
 
-1. Install BepInEx by following **Steps 1-3** from the official instructions [here](https://docs.bepinex.dev/articles/advanced/steam_interop.html?tabs=tabid-2).
-2. After completing step 3 in the instructions linked above, open run_bepinex.sh and edit the line `dll_search_path_override=""` to be `dll_search_path_override="UnstrippedLibs"`
-3. Download IM-HarmonyIntegration.zip **[HERE](https://github.com/ui3TD/IM-HarmonyIntegration/releases)**
-4. Extract the contents of the zip file into the Idol Manager directory where you installed BepInEx. **Decline** overwriting existing files.
+1. Download BepInEx 5.4.22 for Unix by clicking [here](https://github.com/BepInEx/BepInEx/releases/download/v5.4.22/BepInEx_unix_5.4.22.0.zip).
+2. Extract the contents of the zip file into the Idol Manager directory. On MacOS, the correct directory is where the game .app file is located. On Linux, it is where the .x86 or .x86_64 file is located.
+3. Follow **Steps 2 and 3** from the official instructions [here](https://docs.bepinex.dev/articles/advanced/steam_interop.html?tabs=tabid-2).
+4. After completing step 3 in the instructions linked above, open run_bepinex.sh and edit the line `DOORSTOP_CORLIB_OVERRIDE_PATH=""` to be `DOORSTOP_CORLIB_OVERRIDE_PATH="$BASEDIR/UnstrippedLibs"`
+5. Download IM-HarmonyIntegration.zip **[HERE](https://github.com/ui3TD/IM-HarmonyIntegration/releases)**
+6. Extract the contents of the zip file into the Idol Manager directory where you installed BepInEx. **Decline** overwriting existing files.
 
 ## UNINSTALL INSTRUCTIONS:
 Delete the following files and directories from your Idol Manager directory...
