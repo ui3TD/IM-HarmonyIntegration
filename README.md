@@ -25,7 +25,7 @@ If done correctly, your Idol Manager directory should look like this:
 
 1. Download BepInEx 5.4.22 for Unix by clicking [here](https://github.com/BepInEx/BepInEx/releases/download/v5.4.22/BepInEx_unix_5.4.22.0.zip).
 2. Find the directory where the game executable file is located.
-	1. On Linux, it is `~/.steam/steam/SteamApps/common/MyGame/`
+	1. On Linux, it may vary by distribution but it is usually `~/.steam/steam/SteamApps/common/Idol Manager/`
 	2. On MacOS, it is `~/Library/Application Support/Steam/steamapps/common/Idol Manager/Idol Manager.app/Contents/MacOS/`
 3. Extract the contents of the zip file into the executable directory.
 4. Follow **Steps 2 and 3** from the official instructions [here](https://docs.bepinex.dev/articles/advanced/steam_interop.html?tabs=tabid-2).
