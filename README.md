@@ -32,7 +32,7 @@ If done correctly, your Idol Manager directory should look like this:
 
 If done correctly, you should see `run_bepinex.sh` in the same folder as the Idol Manager executable file.
 
-## UNINSTALL INSTRUCTIONS:
+## UNINSTALL INSTRUCTIONS (Windows):
 Delete the following files and directories from your Idol Manager directory...
 1. HarmonyIntegration README.txt
 2. BepInEx
