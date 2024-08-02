@@ -8,7 +8,7 @@ Visit the [Idol Manager Official Discord](https://discord.com/invite/83ywHbP) to
 
 These instructions are for Windows (x64). MacOS or Linux users should see the section below instead. 
 
-1. Download IM-HarmonyIntegration.zip **[HERE](https://github.com/ui3TD/IM-HarmonyIntegration/releases)**
+1. Download IM-HarmonyIntegration for x64 **[HERE](https://github.com/ui3TD/IM-HarmonyIntegration/releases/download/1.1/IM-HarmonyIntegration.x64.zip)**
 2. Extract the contents of the zip file into the Idol Manager directory. 
 
 You can find the Idol Manager directory by right clicking Idol Manager in your Steam Library and selecting "Browse Local Files" like so:
@@ -23,15 +23,14 @@ If done correctly, your Idol Manager directory should look like this:
 
 ## INSTALL INSTRUCTIONS (MacOS/Linux): 
 
-1. Download BepInEx 5.4.22 for Unix by clicking [here](https://github.com/BepInEx/BepInEx/releases/download/v5.4.22/BepInEx_unix_5.4.22.0.zip).
+6. Download IM-HarmonyIntegration for Unix **[HERE](https://github.com/ui3TD/IM-HarmonyIntegration/releases/download/1.1/IM-HarmonyIntegration.unix.zip)**
 2. Find the directory where the game executable file is located.
 	1. On Linux, it may vary by distribution but it is usually `~/.steam/steam/SteamApps/common/Idol Manager/`
 	2. On MacOS, it is `~/Library/Application Support/Steam/steamapps/common/Idol Manager/Idol Manager.app/Contents/MacOS/`
 3. Extract the contents of the zip file into the executable directory.
 4. Follow **Steps 2 and 3** from the official instructions [here](https://docs.bepinex.dev/articles/advanced/steam_interop.html?tabs=tabid-2).
-5. After completing step 3 in the instructions linked above, open run_bepinex.sh in a text editor and edit the line `DOORSTOP_CORLIB_OVERRIDE_PATH=""` to be `DOORSTOP_CORLIB_OVERRIDE_PATH="$BASEDIR/UnstrippedLibs"`
-6. Download IM-HarmonyIntegration.zip **[HERE](https://github.com/ui3TD/IM-HarmonyIntegration/releases)**
-7. Extract the contents of the zip file into the executable directory where you installed BepInEx. **Decline** overwriting existing files.
+
+If done correctly, you should see `run_bepinex.sh` in the same folder as the Idol Manager executable file.
 
 ## UNINSTALL INSTRUCTIONS:
 Delete the following files and directories from your Idol Manager directory...
