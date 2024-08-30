@@ -1,6 +1,6 @@
 
 # IM-HarmonyIntegration
-You need IM-HarmonyIntegration installed to activate any Harmony mods for Idol Manager on Steam Workshop. IM-HarmonyIntegration [BepInEx](https://github.com/BepInEx/BepInEx) plugin integrates [Harmony](https://github.com/pardeike/Harmony) into Idol Manager. 
+IM-HarmonyIntegration is a [BepInEx](https://github.com/BepInEx/BepInEx) plugin integrates [Harmony](https://github.com/pardeike/Harmony) into Idol Manager. You need IM-HarmonyIntegration installed to activate any Harmony mods for Idol Manager on Steam Workshop. 
 
 Visit the [Idol Manager Official Discord](https://discord.com/invite/83ywHbP) to discuss.
 
