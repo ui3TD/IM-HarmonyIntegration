@@ -23,7 +23,7 @@ If done correctly, your Idol Manager directory should look like this:
 
 ## INSTALL INSTRUCTIONS (MacOS/Linux): 
 
-1. Download IM-HarmonyIntegration for Unix **[HERE](https://github.com/ui3TD/IM-HarmonyIntegration/releases/download/1.1/IM-HarmonyIntegration.unix.zip)**
+1. Download IM-HarmonyIntegration for MacOS or Linux **[HERE](https://github.com/ui3TD/IM-HarmonyIntegration/releases/tag/1.1)**
 2. Find the directory where the game executable file is located.
 	1. On Linux, it may vary by distribution but it is usually `~/.steam/steam/SteamApps/common/Idol Manager/`
 	2. On MacOS, it is `~/Library/Application Support/Steam/steamapps/common/Idol Manager/Idol Manager.app/Contents/MacOS/`
