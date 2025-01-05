@@ -21,7 +21,7 @@ If done correctly, your Idol Manager directory should look like this:
 <img src="https://i.imgur.com/ugUG24I.png" />
 </p>
 
-## INSTALL INSTRUCTIONS (MacOS/Linux): 
+## INSTALL INSTRUCTIONS (MacOS/Linux) - EXPERIMENTAL / UNTESTED: 
 
 1. Download IM-HarmonyIntegration for MacOS or Linux **[HERE](https://github.com/ui3TD/IM-HarmonyIntegration/releases/tag/1.1)**
 2. Find the directory where the game executable file is located.
