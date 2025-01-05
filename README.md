@@ -23,6 +23,8 @@ If done correctly, your Idol Manager directory should look like this:
 
 ## INSTALL INSTRUCTIONS (MacOS/Linux) - EXPERIMENTAL / UNTESTED: 
 
+Unfortunately, I'm unable to test on MacOS/Linux. If you experience issues, it is likely that I've configured BepInEx incorrectly. You can try installing BepInEx from scratch following their official instructions.
+
 1. Download IM-HarmonyIntegration for MacOS or Linux **[HERE](https://github.com/ui3TD/IM-HarmonyIntegration/releases/tag/1.1)**
 2. Find the directory where the game executable file is located.
 	1. On Linux, it may vary by distribution but it is usually `~/.steam/steam/SteamApps/common/Idol Manager/`
