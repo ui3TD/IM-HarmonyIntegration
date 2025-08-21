@@ -34,7 +34,7 @@ Unfortunately, I'm unable to test on MacOS/Linux. If you experience issues, it i
 
 If done correctly, you should see `run_bepinex.sh` in the same folder as the Idol Manager executable file.
 
-Suggestions: For Linux users, try the standard Windows x64 zip file. It would work for Steam games that run through Proton (Steam Play). If you try this, then you must set the launch option to: `WINEDLLOVERRIDES="winhttp=n,b" %command%`.
+Suggestions: For Linux users, check the `executable_name` value in `run_bepinex.sh`. I probably set that incorrectly. It needs to be the name of the Idol Manager executable on the Linux install.
 
 ## UNINSTALL INSTRUCTIONS (Windows):
 Delete the following files and directories from your Idol Manager directory...
