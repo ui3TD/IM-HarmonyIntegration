@@ -34,7 +34,7 @@ Unfortunately, I'm unable to test on MacOS/Linux. If you experience issues, it i
 
 If done correctly, you should see `run_bepinex.sh` in the same folder as the Idol Manager executable file.
 
-Suggestions: For Linux users, if the executable is an exe file, then you are running a Windows version through Proton. Use the Windows (x64) zip file and consult this guide [here](https://docs.bepinex.dev/articles/advanced/proton_wine.html).
+Suggestions: For Linux users, if the executable is an exe file, then you are running a Windows version through Proton. Use the Windows (x64) zip file and consult this guide [here](https://docs.bepinex.dev/articles/advanced/proton_wine.html). If that doesn't work, you can also try setting the Launch Options to `WINEDLLOVERRIDES="winhttp=n,b" %command%`.
 
 ## UNINSTALL INSTRUCTIONS (Windows):
 Delete the following files and directories from your Idol Manager directory...
