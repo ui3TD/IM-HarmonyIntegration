@@ -30,9 +30,9 @@ If done correctly, your Idol Manager directory should look like this:
 3. Extract the contents of the zip file into the directory.
 4. Follow **Steps 2 and 3** from the official instructions [here](https://docs.bepinex.dev/articles/advanced/steam_interop.html?tabs=tabid-2).
 
-If done correctly, you should see `run_bepinex.sh` in the same folder as the Idol Manager executable file.
+If done correctly, you should see `run_bepinex.sh` in the same folder as the Idol Manager executable file (`Idol Manager.app` or `IdolManager.x86_64`).
 
-Suggestions: For Linux users, if the executable is an exe file, then you are running a Windows version through Proton. Use the [Windows (x64) release of IM-HarmonyIntegration](https://github.com/ui3TD/IM-HarmonyIntegration/releases/download/1.1/IM-HarmonyIntegration.x64.zip) and consult this guide [here](https://docs.bepinex.dev/articles/advanced/proton_wine.html). If that doesn't work, you can also try setting the Launch Options to `WINEDLLOVERRIDES="winhttp=n,b" %command%`.
+Suggestions: For Linux users, if the executable is a `.exe` file, then you are running a Windows version through Proton. Use the [Windows (x64) release of IM-HarmonyIntegration](https://github.com/ui3TD/IM-HarmonyIntegration/releases/download/1.1/IM-HarmonyIntegration.x64.zip) and consult this guide [here](https://docs.bepinex.dev/articles/advanced/proton_wine.html). If that doesn't work, you can also try setting the Launch Options to `WINEDLLOVERRIDES="winhttp=n,b" %command%`.
 
 Unfortunately, I'm unable to test on MacOS/Linux. If you experience issues, it is likely that I've configured BepInEx incorrectly. You can try installing BepInEx from scratch following their official instructions.
 
