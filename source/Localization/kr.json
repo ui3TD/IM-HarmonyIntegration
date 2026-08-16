@@ -1,0 +1,62 @@
+[
+  {
+    "id": "IMHI_MODS_SEARCH_PLACEHOLDER",
+    "text": "모드 검색..."
+  },
+  {
+    "id": "IMHI_MODS_PAGE",
+    "text": "페이지"
+  },
+  {
+    "id": "IMHI_MODS_PREVIOUS",
+    "text": "이전"
+  },
+  {
+    "id": "IMHI_MODS_NEXT",
+    "text": "다음"
+  },
+  {
+    "id": "IMHI_MODS_MODS",
+    "text": "모드"
+  },
+  {
+    "id": "IMHI_MODS_MATCHES",
+    "text": "검색 결과"
+  },
+  {
+    "id": "IMHI_MODS_PER_PAGE",
+    "text": "페이지당"
+  },
+  {
+    "id": "IMHI_MODS_NO_RESULTS",
+    "text": "검색 결과 없음"
+  },
+  {
+    "id": "IMHI_MODS_PAGE_FORMAT",
+    "text": "{0} / {1} 페이지"
+  },
+  {
+    "id": "IMHI_MODS_COUNT_FORMAT",
+    "text": "모드 {0}개  |  페이지당 {1}개"
+  },
+  {
+    "id": "IMHI_MODS_MATCH_COUNT_FORMAT",
+    "text": "검색 결과 {0}개  |  페이지당 {1}개"
+  },
+  {
+    "id": "IMHI_MODS_VERSION",
+    "text": "버전"
+  },
+  {
+    "id": "IMHI_MODS_VERSION_FORMAT",
+    "text": "버전 {0}"
+  },
+  {
+    "id": "IMHI_MODS_LOCAL",
+    "text": "로컬"
+  },
+  {
+    "id": "IMHI_MODS_WORKSHOP",
+    "text": "창작마당"
+  }
+]

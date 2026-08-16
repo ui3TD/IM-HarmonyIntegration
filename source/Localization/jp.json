@@ -1,0 +1,62 @@
+[
+  {
+    "id": "IMHI_MODS_SEARCH_PLACEHOLDER",
+    "text": "MODを検索..."
+  },
+  {
+    "id": "IMHI_MODS_PAGE",
+    "text": "ページ"
+  },
+  {
+    "id": "IMHI_MODS_PREVIOUS",
+    "text": "前へ"
+  },
+  {
+    "id": "IMHI_MODS_NEXT",
+    "text": "次へ"
+  },
+  {
+    "id": "IMHI_MODS_MODS",
+    "text": "MOD"
+  },
+  {
+    "id": "IMHI_MODS_MATCHES",
+    "text": "一致"
+  },
+  {
+    "id": "IMHI_MODS_PER_PAGE",
+    "text": "1ページ"
+  },
+  {
+    "id": "IMHI_MODS_NO_RESULTS",
+    "text": "結果なし"
+  },
+  {
+    "id": "IMHI_MODS_PAGE_FORMAT",
+    "text": "{0} / {1} ページ"
+  },
+  {
+    "id": "IMHI_MODS_COUNT_FORMAT",
+    "text": "MOD {0}件  |  1ページ{1}件"
+  },
+  {
+    "id": "IMHI_MODS_MATCH_COUNT_FORMAT",
+    "text": "一致 {0}件  |  1ページ{1}件"
+  },
+  {
+    "id": "IMHI_MODS_VERSION",
+    "text": "バージョン"
+  },
+  {
+    "id": "IMHI_MODS_VERSION_FORMAT",
+    "text": "バージョン {0}"
+  },
+  {
+    "id": "IMHI_MODS_LOCAL",
+    "text": "ローカル"
+  },
+  {
+    "id": "IMHI_MODS_WORKSHOP",
+    "text": "ワークショップ"
+  }
+]

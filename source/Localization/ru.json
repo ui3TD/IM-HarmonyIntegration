@@ -1,0 +1,62 @@
+[
+  {
+    "id": "IMHI_MODS_SEARCH_PLACEHOLDER",
+    "text": "Поиск модов..."
+  },
+  {
+    "id": "IMHI_MODS_PAGE",
+    "text": "Страница"
+  },
+  {
+    "id": "IMHI_MODS_PREVIOUS",
+    "text": "Предыдущая"
+  },
+  {
+    "id": "IMHI_MODS_NEXT",
+    "text": "Следующая"
+  },
+  {
+    "id": "IMHI_MODS_MODS",
+    "text": "моды"
+  },
+  {
+    "id": "IMHI_MODS_MATCHES",
+    "text": "совпадения"
+  },
+  {
+    "id": "IMHI_MODS_PER_PAGE",
+    "text": "страница"
+  },
+  {
+    "id": "IMHI_MODS_NO_RESULTS",
+    "text": "Ничего не найдено"
+  },
+  {
+    "id": "IMHI_MODS_PAGE_FORMAT",
+    "text": "Страница {0} / {1}"
+  },
+  {
+    "id": "IMHI_MODS_COUNT_FORMAT",
+    "text": "{0} модов  |  {1}/стр."
+  },
+  {
+    "id": "IMHI_MODS_MATCH_COUNT_FORMAT",
+    "text": "{0} совпадений  |  {1}/стр."
+  },
+  {
+    "id": "IMHI_MODS_VERSION",
+    "text": "Версия"
+  },
+  {
+    "id": "IMHI_MODS_VERSION_FORMAT",
+    "text": "Версия {0}"
+  },
+  {
+    "id": "IMHI_MODS_LOCAL",
+    "text": "Локальный"
+  },
+  {
+    "id": "IMHI_MODS_WORKSHOP",
+    "text": "Мастерская"
+  }
+]

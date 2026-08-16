@@ -1,0 +1,62 @@
+[
+  {
+    "id": "IMHI_MODS_SEARCH_PLACEHOLDER",
+    "text": "Rechercher des mods..."
+  },
+  {
+    "id": "IMHI_MODS_PAGE",
+    "text": "Page"
+  },
+  {
+    "id": "IMHI_MODS_PREVIOUS",
+    "text": "Précédent"
+  },
+  {
+    "id": "IMHI_MODS_NEXT",
+    "text": "Suivant"
+  },
+  {
+    "id": "IMHI_MODS_MODS",
+    "text": "mods"
+  },
+  {
+    "id": "IMHI_MODS_MATCHES",
+    "text": "résultats"
+  },
+  {
+    "id": "IMHI_MODS_PER_PAGE",
+    "text": "page"
+  },
+  {
+    "id": "IMHI_MODS_NO_RESULTS",
+    "text": "Aucun résultat"
+  },
+  {
+    "id": "IMHI_MODS_PAGE_FORMAT",
+    "text": "Page {0} / {1}"
+  },
+  {
+    "id": "IMHI_MODS_COUNT_FORMAT",
+    "text": "{0} mods  |  {1}/page"
+  },
+  {
+    "id": "IMHI_MODS_MATCH_COUNT_FORMAT",
+    "text": "{0} résultats  |  {1}/page"
+  },
+  {
+    "id": "IMHI_MODS_VERSION",
+    "text": "Version"
+  },
+  {
+    "id": "IMHI_MODS_VERSION_FORMAT",
+    "text": "Version {0}"
+  },
+  {
+    "id": "IMHI_MODS_LOCAL",
+    "text": "Local"
+  },
+  {
+    "id": "IMHI_MODS_WORKSHOP",
+    "text": "Atelier"
+  }
+]

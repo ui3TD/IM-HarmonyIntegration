@@ -1,0 +1,62 @@
+[
+  {
+    "id": "IMHI_MODS_SEARCH_PLACEHOLDER",
+    "text": "搜索模组..."
+  },
+  {
+    "id": "IMHI_MODS_PAGE",
+    "text": "页"
+  },
+  {
+    "id": "IMHI_MODS_PREVIOUS",
+    "text": "上一页"
+  },
+  {
+    "id": "IMHI_MODS_NEXT",
+    "text": "下一页"
+  },
+  {
+    "id": "IMHI_MODS_MODS",
+    "text": "模组"
+  },
+  {
+    "id": "IMHI_MODS_MATCHES",
+    "text": "匹配项"
+  },
+  {
+    "id": "IMHI_MODS_PER_PAGE",
+    "text": "每页"
+  },
+  {
+    "id": "IMHI_MODS_NO_RESULTS",
+    "text": "无结果"
+  },
+  {
+    "id": "IMHI_MODS_PAGE_FORMAT",
+    "text": "第 {0} / {1} 页"
+  },
+  {
+    "id": "IMHI_MODS_COUNT_FORMAT",
+    "text": "{0} 个模组  |  每页 {1} 个"
+  },
+  {
+    "id": "IMHI_MODS_MATCH_COUNT_FORMAT",
+    "text": "{0} 个匹配项  |  每页 {1} 个"
+  },
+  {
+    "id": "IMHI_MODS_VERSION",
+    "text": "版本"
+  },
+  {
+    "id": "IMHI_MODS_VERSION_FORMAT",
+    "text": "版本 {0}"
+  },
+  {
+    "id": "IMHI_MODS_LOCAL",
+    "text": "本地"
+  },
+  {
+    "id": "IMHI_MODS_WORKSHOP",
+    "text": "创意工坊"
+  }
+]

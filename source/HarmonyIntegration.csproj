@@ -1,10 +1,12 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net46</TargetFramework>
     <AssemblyName>HarmonyIntegration</AssemblyName>
     <Description>Integrates Harmony into Idol Manager using BepInEx</Description>
-    <Version>1.0.0</Version>
+    <!-- Single source of plugin/assembly versioning. BepInEx.PluginInfoProps generates
+         PluginInfo.PLUGIN_VERSION from this value for the BepInPlugin attribute. -->
+    <Version>1.1.0</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
@@ -28,5 +30,27 @@
 	    <Reference Include="Assembly-CSharp">
 		    <HintPath>dll\Assembly-CSharp.dll</HintPath>
 	    </Reference>
+	    <Reference Include="Assembly-CSharp-firstpass">
+	      <HintPath>dll\Assembly-CSharp-firstpass.dll</HintPath>
+	    </Reference>
+	    <Reference Include="UnityEngine.UI">
+	      <HintPath>dll\UnityEngine.UI.dll</HintPath>
+	      <Private>false</Private>
+	    </Reference>
+	    <Reference Include="Unity.TextMeshPro">
+	      <HintPath>dll\Unity.TextMeshPro.dll</HintPath>
+	      <Private>false</Private>
+	    </Reference>
     </ItemGroup>
+
+
+  <ItemGroup>
+    <!-- Keep JSON files editable in source control, but embed them into the plugin assembly.
+         Build output therefore requires only HarmonyIntegration.dll. -->
+    <None Remove="Localization\*.json" />
+    <EmbeddedResource Include="Localization\*.json">
+      <LogicalName>HarmonyIntegration.Localization.%(Filename)%(Extension)</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>
