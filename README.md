@@ -18,7 +18,7 @@ You can find the Idol Manager directory by right clicking Idol Manager in your S
 
 If done correctly, your Idol Manager directory should look like this:
 <p align="left">
-<img src="https://i.imgur.com/ugUG24I.png" />
+<img src="https://i.imgur.com/KL0fxbU.png" />
 </p>
 
 ## INSTALL INSTRUCTIONS (MacOS/Linux) - EXPERIMENTAL / UNTESTED: 
@@ -55,12 +55,20 @@ See [IM-FastForward](https://github.com/ui3TD/IM-FastForward) for an example and
 ## BUILDING FROM SOURCE:
 Pre-reqs:
 - .NET Framework 4.6.
-- Unstripped libraries of: mscorlib.dll, System.Configuration.dll, System.Core.dll, System.dll, UnityEngine.CoreModule.dll, UnityEngine.SharedInternalsModule.dll
-- Edit HarmonyIntegration.csproj to point to your copy of Idol Manager's Assembly-CSharp.dll file
+- Unstripped libraries of: 
+	- `mscorlib.dll` 
+	- `System.Configuration.dll`
+	- `System.Core.dll` 
+	- `System.dll`
+	- `UnityEngine.CoreModule.dll`
+	- `UnityEngine.SharedInternalsModule.dll`
+	located in the latest release download of this package. Releases [here](https://github.com/ui3TD/IM-HarmonyIntegration/releases).
+
 
 1. Put unstripped libraries into UnstrippedLibs folder in the Idol Manager directory
-2. Obtain [BepInEx](https://github.com/BepInEx/BepInEx) and copy into game directory
-3. Modify doorstop_config.ini to point to UnstrippedLibs
-4. Run the game to initialize BepInEx
-5. Build HarmonyIntegration
-6. Copy the dll into BepInEx plugin directory
+2. Obtain [BepInEx](https://github.com/BepInEx/BepInEx) and copy into game directory.
+3. Modify `doorstop_config.ini` to point to UnstrippedLibs.
+4. Run the game to initialize BepInEx.
+5. Edit `HarmonyIntegration.csproj` to point to Idol Manager's `Assembly-CSharp.dll` file, and `Assembly-CSharp-firstpass.dll` file located in `Idol Manager\IM_Data\Managed` where your game is installed.
+6. Build `HarmonyIntegration.dll`.
+7. Copy `HarmonyIntegration.dll` into your `Idol Manager\BepInEx\plugins` directory.
