@@ -1,10 +1,11 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net46</TargetFramework>
     <AssemblyName>HarmonyIntegration</AssemblyName>
-    <Description>Integrates Harmony into Idol Manager using BepInEx</Description>
-    <Version>1.0.0</Version>
+    <Description>Minimal Harmony bootstrap for Idol Manager using BepInEx</Description>
+    <!-- Single source of plugin/assembly versioning. BepInEx.PluginInfoProps generates
+         PluginInfo.PLUGIN_VERSION from this value for the BepInPlugin attribute. -->
+    <Version>1.2.0</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
@@ -19,14 +20,17 @@
     </PackageReference>
     <PackageReference Include="UnityEngine.Modules" Version="2019.4.23" IncludeAssets="compile" />
   </ItemGroup>
-  
+
   <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
   </ItemGroup>
 
-    <ItemGroup>
-	    <Reference Include="Assembly-CSharp">
-		    <HintPath>dll\Assembly-CSharp.dll</HintPath>
-	    </Reference>
-    </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>dll\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>dll\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>
