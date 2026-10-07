@@ -402,3 +402,6 @@ FodyWeavers.xsd
 
 #DLLs to source from game folders
 dll/
+
+# Release packages (built by tools/package_release.py; contain third-party binaries)
+dist/
