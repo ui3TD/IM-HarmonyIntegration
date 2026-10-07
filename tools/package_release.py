@@ -54,6 +54,7 @@ def add_entry(zf, arcname, src, unix):
         info.external_attr |= 0x10
         zf.writestr(info, b"")
     else:
+        assert src is not None
         with open(src, "rb") as f:
             zf.writestr(info, f.read())
 
@@ -77,7 +78,7 @@ def package(platform, unix, template_dir, dll, out_path):
 
 
 def main():
-    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser = argparse.ArgumentParser(description=(__doc__ or "").partition("\n")[0])
     parser.add_argument("--templates", default=DEFAULT_TEMPLATES)
     parser.add_argument("--out", default=None, help="default: dist/<version>")
     parser.add_argument("--no-build", action="store_true", help="package the existing Release build")
