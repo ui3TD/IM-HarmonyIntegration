@@ -25,12 +25,18 @@
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
   </ItemGroup>
 
+  <!-- Game DLLs: use a shared dll folder beside this repo (..\..\dll) when present, else source\dll. -->
+  <PropertyGroup>
+    <GameDllDir Condition="'$(GameDllDir)' == '' and Exists('$(MSBuildProjectDirectory)\..\..\dll\Assembly-CSharp.dll')">$(MSBuildProjectDirectory)\..\..\dll</GameDllDir>
+    <GameDllDir Condition="'$(GameDllDir)' == ''">$(MSBuildProjectDirectory)\dll</GameDllDir>
+  </PropertyGroup>
+
   <ItemGroup>
     <Reference Include="Assembly-CSharp">
-      <HintPath>dll\Assembly-CSharp.dll</HintPath>
+      <HintPath>$(GameDllDir)\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>dll\Assembly-CSharp-firstpass.dll</HintPath>
+      <HintPath>$(GameDllDir)\Assembly-CSharp-firstpass.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>
