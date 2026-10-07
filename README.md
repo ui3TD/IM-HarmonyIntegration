@@ -9,7 +9,7 @@ Visit the [Idol Manager Official Discord](https://discord.com/invite/83ywHbP) to
 
 These instructions are for Windows (x64). MacOS or Linux users should see the section below instead.
 
-1. Download IM-HarmonyIntegration for x64 **[HERE](https://github.com/ui3TD/IM-HarmonyIntegration/releases/download/1.1/IM-HarmonyIntegration.x64.zip)**
+1. Download IM-HarmonyIntegration for x64 **[HERE](https://github.com/ui3TD/IM-HarmonyIntegration/releases/download/1.2.0/IM-HarmonyIntegration.x64.zip)**
 2. Extract the contents of the zip file into the Idol Manager directory.
 
 You can find the Idol Manager directory by right clicking Idol Manager in your Steam Library and selecting "Browse Local Files" like so:
@@ -24,16 +24,16 @@ If done correctly, your Idol Manager directory should look like this:
 
 ## INSTALL INSTRUCTIONS (MacOS/Linux) - EXPERIMENTAL / UNTESTED
 
-1. Download IM-HarmonyIntegration for MacOS or Linux **[HERE](https://github.com/ui3TD/IM-HarmonyIntegration/releases/tag/1.1)**
+1. Download IM-HarmonyIntegration for MacOS or Linux **[HERE](https://github.com/ui3TD/IM-HarmonyIntegration/releases/tag/1.2.0)**
 2. Find the directory where the game executable file or bundle is located.
-3. On Linux, it may vary by distribution but it is usually `~/.steam/steam/SteamApps/common/Idol Manager/`
-4. On MacOS, it is `~/Library/Application Support/Steam/steamapps/common/Idol Manager/`
-5. Extract the contents of the zip file into the directory.
-6. Follow **Steps 2 and 3** from the official instructions [here](https://docs.bepinex.dev/articles/advanced/steam_interop.html?tabs=tabid-2).
+    - On Linux, it may vary by distribution but it is usually `~/.steam/steam/SteamApps/common/Idol Manager/`
+    - On MacOS, it is `~/Library/Application Support/Steam/steamapps/common/Idol Manager/`
+3. Extract the contents of the zip file into the directory.
+4. Follow **Steps 2 and 3** from the official instructions [here](https://docs.bepinex.dev/articles/advanced/steam_interop.html?tabs=tabid-2).
 
 If done correctly, you should see `run_bepinex.sh` in the same folder as the Idol Manager executable file (`Idol Manager.app` or `IdolManager.x86_64`).
 
-Suggestions: For Linux users, if the executable is a `.exe` file, then you are running a Windows version through Proton. Use the [Windows (x64) release of IM-HarmonyIntegration](https://github.com/ui3TD/IM-HarmonyIntegration/releases/download/1.1/IM-HarmonyIntegration.x64.zip) and consult this guide [here](https://docs.bepinex.dev/articles/advanced/proton_wine.html). If that doesn't work, you can also try setting the Launch Options to `WINEDLLOVERRIDES="winhttp=n,b" %command%`.
+Suggestions: For Linux users, if the executable is a `.exe` file, then you are running a Windows version through Proton. Use the [Windows (x64) release of IM-HarmonyIntegration](https://github.com/ui3TD/IM-HarmonyIntegration/releases/download/1.2.0/IM-HarmonyIntegration.x64.zip) and consult this guide [here](https://docs.bepinex.dev/articles/advanced/proton_wine.html). If that doesn't work, you can also try setting the Launch Options to `WINEDLLOVERRIDES="winhttp=n,b" %command%`.
 
 Unfortunately, I'm unable to test on MacOS/Linux. If you experience issues, it is likely that I've configured BepInEx incorrectly. You can try installing BepInEx from scratch following their official instructions.
 
@@ -60,19 +60,18 @@ See [IM-FastForward](https://github.com/ui3TD/IM-FastForward) for an example and
 Pre-reqs:
 
 - .NET Framework 4.6.
-- Unstripped libraries of:
+- Unstripped libraries of the following, included in the latest [release](https://github.com/ui3TD/IM-HarmonyIntegration/releases) download:
   - `mscorlib.dll`
   - `System.Configuration.dll`
   - `System.Core.dll`
   - `System.dll`
   - `UnityEngine.CoreModule.dll`
   - `UnityEngine.SharedInternalsModule.dll`
- located in the latest release download of this package. Releases [here](https://github.com/ui3TD/IM-HarmonyIntegration/releases).
 
-1. Put unstripped libraries into UnstrippedLibs folder in the Idol Manager directory
+1. Put unstripped libraries into UnstrippedLibs folder in the Idol Manager directory.
 2. Obtain [BepInEx](https://github.com/BepInEx/BepInEx) and copy into game directory.
 3. Modify `doorstop_config.ini` to point to UnstrippedLibs.
 4. Run the game to initialize BepInEx.
-5. Edit `HarmonyIntegration.csproj` to point to Idol Manager's `Assembly-CSharp.dll` file, and `Assembly-CSharp-firstpass.dll` file located in `Idol Manager\IM_Data\Managed` where your game is installed.
+5. Copy `Assembly-CSharp.dll` and `Assembly-CSharp-firstpass.dll` from `Idol Manager\IM_Data\Managed` into `source\dll`. Alternatively, put them in a `dll` folder next to the repo folder (shared with other mod projects), or build with `-p:GameDllDir=<path>`.
 6. Build `HarmonyIntegration.dll`.
 7. Copy `HarmonyIntegration.dll` into your `Idol Manager\BepInEx\plugins` directory.
