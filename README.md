@@ -1,63 +1,78 @@
-# IM-HarmonyIntegration 1.2.0
 
-IM-HarmonyIntegration is a BepInEx bootstrap plugin that enables Harmony-based mods in Idol Manager.
+# IM-HarmonyIntegration
 
-## 1.2.0 design goal
+IM-HarmonyIntegration is a [BepInEx](https://github.com/BepInEx/BepInEx) plugin that integrates [Harmony](https://github.com/pardeike/Harmony) into Idol Manager. You need IM-HarmonyIntegration installed to activate any Harmony mods for Idol Manager on Steam Workshop.
 
-Version 1.2.0 deliberately makes HarmonyIntegration small and infrastructure-only. The plugin is difficult to update for players because it lives outside Idol Manager's normal Steam Workshop mod-delivery path. Features that can live in a regular Harmony mod should therefore not live in this plugin.
+Visit the [Idol Manager Official Discord](https://discord.com/invite/83ywHbP) to discuss.
 
-HarmonyIntegration 1.2.0 is responsible only for:
+## INSTALL INSTRUCTIONS (Windows)
 
-- detecting enabled Idol Manager mods that declare `HarmonyID` in `info.json`;
-- resolving `<HarmonyID>.dll` in the declaring mod's directory;
-- loading the selected patch assembly;
-- applying patches through `Harmony.CreateAndPatchAll`;
-- unpatching through `Harmony.UnpatchID` when the effective mod is disabled;
-- synchronizing Harmony state after `Mods.LoadMods()` and `staticVars._settings.SwitchModStatus()`;
-- resolving duplicate enabled copies that share a HarmonyID, preferring LocalLow over Workshop and preserving the previous later-entry precedence within a source tier;
-- logging missing DLLs, duplicate selections, load failures, and unload failures.
+These instructions are for Windows (x64). MacOS or Linux users should see the section below instead.
 
-It intentionally does **not** alter any mod-management UI.
+1. Download IM-HarmonyIntegration for x64 **[HERE](https://github.com/ui3TD/IM-HarmonyIntegration/releases/download/1.1/IM-HarmonyIntegration.x64.zip)**
+2. Extract the contents of the zip file into the Idol Manager directory.
 
-## Removed from the BepInEx plugin in 1.2.0
+You can find the Idol Manager directory by right clicking Idol Manager in your Steam Library and selecting "Browse Local Files" like so:
+<p align="left">
+<img src="https://i.imgur.com/RnD3WjU.jpg" />
+</p>
 
-The following ExSlam-fork functionality is intentionally removed from HarmonyIntegration and deferred to a separate Workshop-deliverable Harmony mod:
+If done correctly, your Idol Manager directory should look like this:
+<p align="left">
+<img src="https://i.imgur.com/KL0fxbU.png" />
+</p>
 
-- replacement of `Mods_Popup.Render`;
-- installed-mod pagination and search;
-- source filtering;
-- custom card layout and metadata;
-- thumbnail scheduling and cache management;
-- custom Mod_Button tooltip behavior;
-- browser localization resources;
-- any future redesign of the upload-new-mod or update-uploaded-mod menus.
+## INSTALL INSTRUCTIONS (MacOS/Linux) - EXPERIMENTAL / UNTESTED
 
-See `UI_EXTRACTION_PLAN.md` for the future mod's scope and migration requirements.
+1. Download IM-HarmonyIntegration for MacOS or Linux **[HERE](https://github.com/ui3TD/IM-HarmonyIntegration/releases/tag/1.1)**
+2. Find the directory where the game executable file or bundle is located.
+3. On Linux, it may vary by distribution but it is usually `~/.steam/steam/SteamApps/common/Idol Manager/`
+4. On MacOS, it is `~/Library/Application Support/Steam/steamapps/common/Idol Manager/`
+5. Extract the contents of the zip file into the directory.
+6. Follow **Steps 2 and 3** from the official instructions [here](https://docs.bepinex.dev/articles/advanced/steam_interop.html?tabs=tabid-2).
 
-## Harmony mod format
+If done correctly, you should see `run_bepinex.sh` in the same folder as the Idol Manager executable file (`Idol Manager.app` or `IdolManager.x86_64`).
 
-A Harmony-enabled Idol Manager mod declares a `HarmonyID` in `info.json` and includes a DLL named exactly:
+Suggestions: For Linux users, if the executable is a `.exe` file, then you are running a Windows version through Proton. Use the [Windows (x64) release of IM-HarmonyIntegration](https://github.com/ui3TD/IM-HarmonyIntegration/releases/download/1.1/IM-HarmonyIntegration.x64.zip) and consult this guide [here](https://docs.bepinex.dev/articles/advanced/proton_wine.html). If that doesn't work, you can also try setting the Launch Options to `WINEDLLOVERRIDES="winhttp=n,b" %command%`.
 
-```text
-<HarmonyID>.dll
-```
+Unfortunately, I'm unable to test on MacOS/Linux. If you experience issues, it is likely that I've configured BepInEx incorrectly. You can try installing BepInEx from scratch following their official instructions.
 
-The DLL must contain Harmony-compatible patches. HarmonyIntegration owns patching and unpatching, so the mod should not create its own BepInEx bootstrap or independently patch itself on startup.
+## UNINSTALL INSTRUCTIONS (Windows)
 
-## Source layout
+Delete the following files and directories from your Idol Manager directory...
 
-```text
-IM-HarmonyIntegration-1.2.0-source/
-├── README.md
-├── CHANGELOG.md
-├── UI_EXTRACTION_PLAN.md
-└── source/
-    ├── HarmonyIntegration.csproj
-    └── Plugin.cs
-```
+1. HarmonyIntegration README.txt
+2. BepInEx
+3. UnstrippedLibs
+4. winhttp.dll
+5. doorstop_config.ini
 
-## Build note
+## HOW IT WORKS
 
-This package contains source only. It has not been compiled as part of this refactor pass.
+This plugin patches the in-game mod manager to search for and load _HarmonyID_.dll in each mod's folder, where "_HarmonyID_" is a field in the mod's info.json file. Toggling mods in-game will enable/disable the Harmony patches as expected.
 
-The project targets .NET Framework 4.6 and expects Idol Manager's `Assembly-CSharp.dll` and `Assembly-CSharp-firstpass.dll` under `source/dll/`, matching the existing ExSlam project layout.
+Mod devs must make sure that the .dll is a C# library built on .NET 4.6 that includes Harmony compatible patches. Do not initiate the Harmony instance in your mod (i.e. do not include an Awake() method). IM-HarmonyIntegration controls all patching/unpatching operations.
+
+See [IM-FastForward](https://github.com/ui3TD/IM-FastForward) for an example and tutorial for creating compatible mods.
+
+## BUILDING FROM SOURCE
+
+Pre-reqs:
+
+- .NET Framework 4.6.
+- Unstripped libraries of:
+  - `mscorlib.dll`
+  - `System.Configuration.dll`
+  - `System.Core.dll`
+  - `System.dll`
+  - `UnityEngine.CoreModule.dll`
+  - `UnityEngine.SharedInternalsModule.dll`
+ located in the latest release download of this package. Releases [here](https://github.com/ui3TD/IM-HarmonyIntegration/releases).
+
+1. Put unstripped libraries into UnstrippedLibs folder in the Idol Manager directory
+2. Obtain [BepInEx](https://github.com/BepInEx/BepInEx) and copy into game directory.
+3. Modify `doorstop_config.ini` to point to UnstrippedLibs.
+4. Run the game to initialize BepInEx.
+5. Edit `HarmonyIntegration.csproj` to point to Idol Manager's `Assembly-CSharp.dll` file, and `Assembly-CSharp-firstpass.dll` file located in `Idol Manager\IM_Data\Managed` where your game is installed.
+6. Build `HarmonyIntegration.dll`.
+7. Copy `HarmonyIntegration.dll` into your `Idol Manager\BepInEx\plugins` directory.
