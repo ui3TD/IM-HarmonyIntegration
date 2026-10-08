@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <IsPackable>false</IsPackable>
+    <!-- The game is 64-bit; run the tests the same way. -->
+    <PlatformTarget>x64</PlatformTarget>
+    <RestoreAdditionalProjectSources>https://nuget.bepinex.dev/v3/index.json</RestoreAdditionalProjectSources>
+  </PropertyGroup>
+
+  <!-- Same game DLL folder as the plugin: ..\..\dll beside the repo when present, else source\dll. -->
+  <PropertyGroup>
+    <GameDllDir Condition="'$(GameDllDir)' == '' and Exists('$(MSBuildProjectDirectory)\..\..\..\dll\Assembly-CSharp.dll')">$(MSBuildProjectDirectory)\..\..\..\dll</GameDllDir>
+    <GameDllDir Condition="'$(GameDllDir)' == ''">$(MSBuildProjectDirectory)\..\..\source\dll</GameDllDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- The plugin as built, so the tests check the real HarmonyIntegration.dll. -->
+    <ProjectReference Include="..\..\source\HarmonyIntegration.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
+    <PackageReference Include="xunit" Version="2.9.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2" />
+    <!-- The plugin compiles against Unity stubs; the tests load the game's real Unity DLLs below instead. -->
+    <PackageReference Include="UnityEngine.Modules" Version="2019.4.23" ExcludeAssets="all" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Copied next to the tests so game types can load. Never commit them. -->
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(GameDllDir)\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>$(GameDllDir)\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <!-- Mods._mod has Steam fields, so the type needs Steamworks.NET to load. -->
+    <Reference Include="Steamworks.NET">
+      <HintPath>$(GameDllDir)\Steamworks.NET.dll</HintPath>
+    </Reference>
+    <!-- Type-forwarding facade that BepInEx.dll references. -->
+    <Reference Include="UnityEngine">
+      <HintPath>$(GameDllDir)\UnityEngine.dll</HintPath>
+    </Reference>
+    <!-- Unstripped, from the release's UnstrippedLibs folder. -->
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(GameDllDir)\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SharedInternalsModule">
+      <HintPath>$(GameDllDir)\UnityEngine.SharedInternalsModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

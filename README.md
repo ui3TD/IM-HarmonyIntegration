@@ -75,3 +75,13 @@ Pre-reqs:
 5. Copy `Assembly-CSharp.dll` and `Assembly-CSharp-firstpass.dll` from `Idol Manager\IM_Data\Managed` into `source\dll`. Alternatively, put them in a `dll` folder next to the repo folder (shared with other mod projects), or build with `-p:GameDllDir=<path>`.
 6. Build `HarmonyIntegration.dll`.
 7. Copy `HarmonyIntegration.dll` into your `Idol Manager\BepInEx\plugins` directory.
+
+## RUNNING TESTS
+
+`tests/HarmonyIntegration.Tests` checks the built plugin outside the game. It compiles small fake Harmony mods, lays out mod folders with `info.json` files, and runs the plugin's loading and toggling code against the game's real mod lists.
+
+The tests need these game DLLs in the same folder as the build (`source\dll` or the shared `dll` folder beside the repo): `Assembly-CSharp.dll`, `Assembly-CSharp-firstpass.dll`, `Steamworks.NET.dll` and `UnityEngine.dll` from `Idol Manager\IM_Data\Managed`, plus the unstripped `UnityEngine.CoreModule.dll` and `UnityEngine.SharedInternalsModule.dll`.
+
+```
+dotnet test tests/HarmonyIntegration.Tests
+```
