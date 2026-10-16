@@ -11,6 +11,8 @@ repo:
 
 Each template is zipped as-is with the freshly built HarmonyIntegration.dll
 placed at BepInEx/plugins/. Output goes to dist/<version>/ (gitignored).
+BepInEx/cache is never packaged, and packaging stops if a file holds data
+specific to this PC.
 
 With --upload (and --notes-file), also creates the GitHub release
 "IM-HarmonyIntegration <version>" (tag <version> on HEAD) with the three zips,
@@ -24,6 +26,7 @@ Usage:
 """
 
 import argparse
+import getpass
 import os
 import re
 import shutil
@@ -35,6 +38,7 @@ REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CSPROJ = os.path.join(REPO, "source", "HarmonyIntegration.csproj")
 BUILT_DLL = os.path.join(REPO, "source", "bin", "Release", "net46", "HarmonyIntegration.dll")
 PLUGIN_ENTRY = "BepInEx/plugins/HarmonyIntegration.dll"
+SKIPPED_DIR = "BepInEx/cache"
 DEFAULT_TEMPLATES = os.path.join(os.path.dirname(REPO), "release-templates", "IM-HarmonyIntegration")
 GH_FALLBACK = r"C:\Program Files\GitHub CLI\gh.exe"
 
@@ -65,7 +69,18 @@ def add_entry(zf, arcname, src, unix):
     else:
         assert src is not None
         with open(src, "rb") as f:
-            zf.writestr(info, f.read())
+            data = f.read()
+        check_machine_neutral(arcname, data)
+        zf.writestr(info, data)
+
+
+def check_machine_neutral(arcname, data):
+    """Exits if a file holds data specific to this PC."""
+    user = getpass.getuser()
+    pattern = re.compile(r"(?<![A-Za-z]){}(?![A-Za-z])".format(re.escape(user)).encode(), re.IGNORECASE)
+    wide = [s.encode("utf-16-le") for s in (user, user.lower(), user.capitalize())]
+    if pattern.search(data) or any(w in data for w in wide):
+        sys.exit("{} holds data specific to this PC; refusing to package it.".format(arcname))
 
 
 def package(platform, unix, template_dir, dll, out_path):
@@ -77,6 +92,8 @@ def package(platform, unix, template_dir, dll, out_path):
             rel_root = os.path.relpath(root, template_dir).replace(os.sep, "/")
             if rel_root != ".":
                 add_entry(zf, rel_root, None, unix)
+            if rel_root == SKIPPED_DIR or rel_root.startswith(SKIPPED_DIR + "/"):
+                continue  # BepInEx rebuilds its cache on first run
             for name in sorted(files):
                 arcname = name if rel_root == "." else rel_root + "/" + name
                 if arcname == PLUGIN_ENTRY:
