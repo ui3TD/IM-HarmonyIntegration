@@ -22,20 +22,26 @@ If done correctly, your Idol Manager directory should look like this:
 <img src="https://i.imgur.com/KL0fxbU.png" />
 </p>
 
-## INSTALL INSTRUCTIONS (MacOS/Linux) - EXPERIMENTAL / UNTESTED
+## INSTALL INSTRUCTIONS (MacOS/Linux)
 
 1. Download IM-HarmonyIntegration for MacOS or Linux **[HERE](https://github.com/ui3TD/IM-HarmonyIntegration/releases/latest)**
 2. Find the directory where the game executable file or bundle is located.
-    - On Linux, it may vary by distribution but it is usually `~/.steam/steam/SteamApps/common/Idol Manager/`
+    - On Linux, it may vary by distribution but it is usually `~/.steam/steam/steamapps/common/Idol Manager/`
     - On MacOS, it is `~/Library/Application Support/Steam/steamapps/common/Idol Manager/`
 3. Extract the contents of the zip file into the directory.
-4. Follow **Steps 2 and 3** from the official instructions [here](https://docs.bepinex.dev/articles/advanced/steam_interop.html?tabs=tabid-2).
+4. MacOS only: macOS blocks files downloaded from the internet from being loaded into the game. Open Terminal and run:
+    ```
+    xattr -dr com.apple.quarantine "$HOME/Library/Application Support/Steam/steamapps/common/Idol Manager"
+    ```
+5. In your Steam Library, right click Idol Manager, select "Properties", and under "Launch Options" enter:
+    - On Linux: `./run_bepinex.sh %command%`
+    - On MacOS, the full path to the script in quotes, for example: `"/Users/<your user name>/Library/Application Support/Steam/steamapps/common/Idol Manager/run_bepinex.sh" %command%`
 
-If done correctly, you should see `run_bepinex.sh` in the same folder as the Idol Manager executable file (`Idol Manager.app` or `IdolManager.x86_64`).
+If done correctly, you should see `run_bepinex.sh` in the same folder as the Idol Manager executable file (`Idol Manager.app` or `IdolManager.x86_64`). If the game doesn't start, make the script executable by running `chmod +x run_bepinex.sh` in that folder.
 
-Suggestions: For Linux users, if the executable is a `.exe` file, then you are running a Windows version through Proton. Use the [Windows (x64) release of IM-HarmonyIntegration](https://github.com/ui3TD/IM-HarmonyIntegration/releases/latest/download/IM-HarmonyIntegration.x64.zip) and consult this guide [here](https://docs.bepinex.dev/articles/advanced/proton_wine.html). If that doesn't work, you can also try setting the Launch Options to `WINEDLLOVERRIDES="winhttp=n,b" %command%`.
+Proton: on Linux, if the Idol Manager directory has `IM.exe` instead of `IdolManager.x86_64`, Steam is running the Windows version of the game through Proton. Use the [Windows (x64) release of IM-HarmonyIntegration](https://github.com/ui3TD/IM-HarmonyIntegration/releases/latest/download/IM-HarmonyIntegration.x64.zip) instead and follow BepInEx's guide for Proton [here](https://docs.bepinex.dev/articles/advanced/proton_wine.html). If BepInEx still doesn't load, set the Launch Options to `WINEDLLOVERRIDES="winhttp=n,b" %command%`.
 
-Unfortunately, I'm unable to test on MacOS/Linux. If you experience issues, it is likely that I've configured BepInEx incorrectly. You can try installing BepInEx from scratch following their official instructions.
+The Linux release has been tested with the native Linux version of Idol Manager. The MacOS release uses the same setup but hasn't been tested on a Mac yet. If something doesn't work, please report it on the Discord or open an issue here.
 
 ## UNINSTALL INSTRUCTIONS (Windows)
 
@@ -46,6 +52,18 @@ Delete the following files and directories from your Idol Manager directory...
 3. UnstrippedLibs
 4. winhttp.dll
 5. doorstop_config.ini
+
+## UNINSTALL INSTRUCTIONS (MacOS/Linux)
+
+Delete the following files and directories from your Idol Manager directory...
+
+1. BepInEx
+2. UnstrippedLibs
+3. doorstop_libs
+4. run_bepinex.sh
+5. changelog.txt
+
+Then clear the Launch Options you entered for Idol Manager in Steam.
 
 ## HOW IT WORKS
 
