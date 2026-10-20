@@ -8,8 +8,9 @@
     <RestoreAdditionalProjectSources>https://nuget.bepinex.dev/v3/index.json</RestoreAdditionalProjectSources>
   </PropertyGroup>
 
-  <!-- Same game DLL folder as the plugin: ..\..\dll beside the repo when present, else source\dll. -->
+  <!-- Same game DLL folder as the plugin: IDOL_MANAGER_GAME_DLLS when set, else ..\..\dll beside the repo when present, else source\dll. -->
   <PropertyGroup>
+    <GameDllDir Condition="'$(GameDllDir)' == '' and '$(IDOL_MANAGER_GAME_DLLS)' != ''">$(IDOL_MANAGER_GAME_DLLS)</GameDllDir>
     <GameDllDir Condition="'$(GameDllDir)' == '' and Exists('$(MSBuildProjectDirectory)\..\..\..\dll\Assembly-CSharp.dll')">$(MSBuildProjectDirectory)\..\..\..\dll</GameDllDir>
     <GameDllDir Condition="'$(GameDllDir)' == ''">$(MSBuildProjectDirectory)\..\..\source\dll</GameDllDir>
   </PropertyGroup>

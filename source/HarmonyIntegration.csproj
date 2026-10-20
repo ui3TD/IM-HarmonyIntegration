@@ -27,8 +27,9 @@
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
   </ItemGroup>
 
-  <!-- Game DLLs: use a shared dll folder beside this repo (..\..\dll) when present, else source\dll. -->
+  <!-- Game DLLs: the folder in the IDOL_MANAGER_GAME_DLLS environment variable when set, else a shared dll folder beside this repo (..\..\dll) when present, else source\dll. -->
   <PropertyGroup>
+    <GameDllDir Condition="'$(GameDllDir)' == '' and '$(IDOL_MANAGER_GAME_DLLS)' != ''">$(IDOL_MANAGER_GAME_DLLS)</GameDllDir>
     <GameDllDir Condition="'$(GameDllDir)' == '' and Exists('$(MSBuildProjectDirectory)\..\..\dll\Assembly-CSharp.dll')">$(MSBuildProjectDirectory)\..\..\dll</GameDllDir>
     <GameDllDir Condition="'$(GameDllDir)' == ''">$(MSBuildProjectDirectory)\dll</GameDllDir>
   </PropertyGroup>
