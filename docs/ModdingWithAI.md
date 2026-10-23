@@ -84,19 +84,26 @@ mod" section. Find how the game does it first, and replace FastForward's code an
 
 ## Publish on the Steam Workshop
 
-### Step 8: Upload it
+### Step 8: Make a thumbnail
+
+Your mod still has FastForward's picture. Replace it with your own:
+
+- File: `source\assets\thumb.png`
+- Size: 512 × 512 PNG, under 1 MB
+
+### Step 9: Upload it
 
 ```
 Put Gentle Shows on GitHub, and publish it to the Steam Workshop as a new item with its
 tools/publish_workshop.py.
 ```
 
-### Step 9: Make it public
+### Step 10: Make it public
 
 On your mod's Workshop page:
 
-1. Add tags.
-2. Under Add/Remove Required Items, add [Harmony Checker](https://steamcommunity.com/sharedfiles/filedetails/?id=3102983863).
+1. Add [Harmony Checker](https://steamcommunity.com/sharedfiles/filedetails/?id=3102983863) as a Required Item.
+2. Optional: add tags and screenshots.
 3. Make it public.
 
 ### Updating a mod
