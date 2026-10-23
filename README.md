@@ -73,6 +73,8 @@ Mod devs must make sure that the .dll is a C# library built on .NET 4.6 that inc
 
 See [IM-FastForward](https://github.com/ui3TD/IM-FastForward) for an example and tutorial for creating compatible mods.
 
+To make mods with an AI coding assistant, see [Making mods with an AI coding assistant](docs/ModdingWithAI.md).
+
 ## BUILDING FROM SOURCE
 
 Pre-reqs:
