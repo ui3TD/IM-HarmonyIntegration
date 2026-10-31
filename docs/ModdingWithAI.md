@@ -6,7 +6,6 @@ Copy each message below into an AI coding assistant. It does the work. Windows o
 
 - Install Idol Manager.
 - Install an AI coding assistant, such as Claude Code, Codex, Cursor or GitHub Copilot.
-- Make a GitHub account.
 - Make an empty folder, and open the assistant in it.
 
 ## Set up (once)
@@ -14,8 +13,8 @@ Copy each message below into an AI coding assistant. It does the work. Windows o
 ### Step 1: Install the tools
 
 ```
-I want to make Harmony mods for Idol Manager. Install what I need: Git, the GitHub CLI, the .NET SDK,
-Python, ilspycmd, UnityPy and SteamCMD.
+I want to make Harmony mods for Idol Manager. Install what I need: Git, the .NET SDK, Python,
+ilspycmd, UnityPy and SteamCMD.
 
 Mods are loaded by IM-HarmonyIntegration (https://github.com/ui3TD/IM-HarmonyIntegration). If it isn't
 in my game folder, install it as its README says: extract the latest release zip into the game folder.
@@ -43,12 +42,11 @@ the atlas render data and skip the low-quality _LQ atlases. Never commit or publ
 that folder.
 ```
 
-### Step 4: Log in to GitHub and Steam
+### Step 4: Log in to Steam
 
 ```
-Log me in to the GitHub CLI and to SteamCMD, so you can push my mods and publish them to the Steam
-Workshop. Give me the commands and let me type my own passwords. Set Git to commit with my GitHub
-noreply email address, so my real email stays private.
+Log me in to SteamCMD, so you can publish my mods to the Steam Workshop. Give me the command and let
+me type my own password.
 ```
 
 ### Step 5: Give the assistant its rules
@@ -94,8 +92,7 @@ Your mod still has FastForward's picture. Replace it with your own:
 ### Step 9: Upload it
 
 ```
-Put Gentle Shows on GitHub, and publish it to the Steam Workshop as a new item with its
-tools/publish_workshop.py.
+Publish Gentle Shows to the Steam Workshop as a new item with its tools/publish_workshop.py.
 ```
 
 ### Step 10: Make it public
