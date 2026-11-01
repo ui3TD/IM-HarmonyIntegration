@@ -109,3 +109,34 @@ On your mod's Workshop page:
 ```
 Publish the update of Gentle Shows to the Steam Workshop.
 ```
+
+## Tips
+
+Ask for a plan before a bigger change, and add what the plan should cover:
+
+- Tests, so you know what will prove the mod works:
+
+  ```
+  Before you write code, list the situations and edge cases this has to handle and plan a test for
+  each. Test every patch in the mod, not only this change. Use unit tests where you can; plan an
+  in-game test only for what needs the running game, such as layout or clicks, because each game
+  start is slow.
+  ```
+
+- Architecture, so the code stays easy to change as the mod grows:
+
+  ```
+  Before you write code, describe how it fits together: which classes hold what, which game methods
+  you patch, how actions flow and what gets saved. Use the game's own data where you can instead of
+  adding to save files. Sketch the UI only if a screen is new or its layout changes.
+  ```
+
+- Compatibility, so your mod doesn't break or get broken by other mods that change the same things:
+
+  ```
+  For each patch, plan what happens if another mod already fixes the same thing, patches the same
+  method, or changes the values it reads. Change as little as possible: adjust the game's values
+  rather than replacing or skipping its methods, don't rely on other mods' names, and if something
+  your patch expects isn't there, log it and carry on. Also check the mods I have installed for
+  conflicts.
+  ```
