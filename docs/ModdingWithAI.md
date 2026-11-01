@@ -53,11 +53,21 @@ me type my own password.
 
 ```
 Write an instructions file in this folder that you read at the start of every session (for example
-CLAUDE.md or AGENTS.md). Say what this workspace is, where the decompiled code and extracted assets
-are, that each new mod starts as a copy of IM-FastForward, how to build and test a mod, and that
-SteamCMD can download Workshop mods to check other mods' code. Rules: after changing a mod, build it
-and run its tests; commit changes to the mod's git repository, but only after their tests pass; never
-commit or publish the game's files.
+CLAUDE.md or AGENTS.md).
+
+Describe:
+- what this workspace is
+- where the decompiled code and extracted assets are
+- that a new mod can start as a copy of IM-FastForward or of one of my own mods
+- how to build and test a mod
+- that SteamCMD can download Workshop mods to check other mods' code
+
+Rules:
+- After changing a mod, build it and run its tests.
+- Commit changes to the mod's git repository, but only after their tests pass.
+- Never commit or publish the game's files.
+- Each mod's README says what the mod is for. If a request seems to go beyond that, say so before
+  starting, and let me decide whether it belongs in this mod, another mod or a new one.
 ```
 
 Add your own rules to the end of the message if you like, for example "never publish to Steam unless I
@@ -140,3 +150,11 @@ Ask for a plan before a bigger change, and add what the plan should cover:
   your patch expects isn't there, log it and carry on. Also check the mods I have installed for
   conflicts.
   ```
+
+As a mod grows, check that it still sticks to what it's for:
+
+```
+Review this mod's scope. List features that don't serve what the README says the mod is for,
+features that overlap with my other mods, and anything half-finished. Don't change anything; I'll
+decide what to keep, move or remove.
+```
