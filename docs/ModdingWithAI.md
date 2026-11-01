@@ -56,7 +56,8 @@ Write an instructions file in this folder that you read at the start of every se
 CLAUDE.md or AGENTS.md). Say what this workspace is, where the decompiled code and extracted assets
 are, that each new mod starts as a copy of IM-FastForward, how to build and test a mod, and that
 SteamCMD can download Workshop mods to check other mods' code. Rules: after changing a mod, build it
-and run its tests; never commit or publish the game's files.
+and run its tests; commit changes to the mod's git repository, but only after their tests pass; never
+commit or publish the game's files.
 ```
 
 Add your own rules to the end of the message if you like, for example "never publish to Steam unless I
