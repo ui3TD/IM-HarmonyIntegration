@@ -114,7 +114,7 @@ Publish the update of Gentle Shows to the Steam Workshop.
 
 Ask for a plan before a bigger change, and add what the plan should cover:
 
-- Tests, so you know what will prove the mod works:
+- Tests, so big changes, or many small ones over time, don't break what already works:
 
   ```
   Before you write code, list the situations and edge cases this has to handle and plan a test for
