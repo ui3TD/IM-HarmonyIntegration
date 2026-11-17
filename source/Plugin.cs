@@ -11,10 +11,6 @@ namespace HarmonyIntegration
 {
     /// <summary>
     /// Constants used by the Harmony bootstrap and patch synchronization layer.
-    ///
-    /// Version 1.2.0 intentionally keeps this plugin focused on loading and unloading
-    /// Harmony mods. Mod-management UI belongs in a normal Harmony mod so it can be
-    /// distributed and updated independently through Steam Workshop.
     /// </summary>
     internal static class IntegrationConstants
     {
@@ -68,14 +64,13 @@ namespace HarmonyIntegration
 
         public static ManualLogSource Log;
 
-        // Harmony ownership is keyed by HarmonyID rather than by individual Mods._mod
-        // entries. Local and Workshop copies may legitimately share one HarmonyID.
+        // The patched DLL's path for each active HarmonyID. A local and a Workshop copy
+        // of a mod can share one HarmonyID.
         private static readonly Dictionary<string, string> ActivePatchSources =
             new Dictionary<string, string>(StringComparer.Ordinal);
 
-        // Mod metadata is stable during a normal Idol Manager session. Cache positive
-        // and negative lookups by physical directory so ordinary non-Harmony mods do
-        // not repeatedly incur file I/O.
+        // Harmony metadata per mod folder, including folders without a Harmony DLL.
+        // Each folder is read once per session.
         private static readonly Dictionary<string, HarmonyModData> ModDataCache =
             new Dictionary<string, HarmonyModData>(StringComparer.OrdinalIgnoreCase);
 
@@ -104,11 +99,10 @@ namespace HarmonyIntegration
             public bool IsWorkshop;
         }
 
-        // Build the desired state once per HarmonyID. LocalLow copies deliberately
-        // take precedence over Workshop copies when both are enabled. Within a source
-        // tier, the later Mods._Mods entry retains the historical last-loaded priority.
         /// <summary>
         /// Synchronizes all enabled Harmony mods after Idol Manager finishes loading mods.
+        /// Each HarmonyID gets one enabled copy: a LocalLow copy before a Workshop copy,
+        /// and within each source, the later Mods._Mods entry.
         /// </summary>
         internal static void SyncAllModPatches()
         {
@@ -150,8 +144,8 @@ namespace HarmonyIntegration
             int patched = InitialPatchChangeCount;
             int unpatched = InitialPatchChangeCount;
 
-            // Only unload a HarmonyID when no enabled copy remains. Disabling one
-            // duplicate must never unload another enabled local/Workshop sibling.
+            // Unloads the HarmonyIDs with no enabled copy left. A HarmonyID with another
+            // enabled copy stays loaded.
             var activeIDs = new List<string>(ActivePatchSources.Keys);
             foreach (string harmonyID in activeIDs)
             {
@@ -260,8 +254,8 @@ namespace HarmonyIntegration
         }
 
         /// <summary>
-        /// Reads the game's authoritative enabled state and falls back to the cached field
-        /// only if the vanilla accessor fails.
+        /// Reads the game's enabled state from IsEnabled(), or from the Enabled field if
+        /// IsEnabled() throws.
         /// </summary>
         private static bool IsEnabledByGame(Mods._mod mod)
         {
@@ -494,7 +488,7 @@ namespace HarmonyIntegration
                 IsWorkshop = mod.IsWorkshop()
             };
 
-            // Cache negative results too so ordinary Idol Manager mods are not reparsed.
+            // Mods without a Harmony DLL are cached too.
             ModDataCache[modDir] = data;
 
             try
@@ -567,8 +561,8 @@ namespace HarmonyIntegration
         }
     }
 
-    // Re-evaluate the complete HarmonyID group after one vanilla mod entry is toggled.
-    // This matters when LocalLow and Workshop copies share the same HarmonyID.
+    // After a mod is switched on or off, re-syncs its whole HarmonyID group, including
+    // other copies of the mod.
     [HarmonyPatch(
         typeof(staticVars._settings),
         IntegrationConstants.SwitchModStatusMethodName)]
