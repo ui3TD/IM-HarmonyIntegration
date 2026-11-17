@@ -5,8 +5,10 @@ Copy each message below into an AI coding assistant. It does the work. Windows o
 ## Before you start
 
 - Install Idol Manager.
-- Install an AI coding assistant, such as Claude Code, Codex, Cursor or GitHub Copilot.
-- Make an empty folder, and open the assistant in it.
+- Install an AI coding assistant. We recommend [VS Code](https://apps.microsoft.com/detail/xp9khm4bk9fz7q)
+  (Microsoft Store) with the [Claude Code extension](https://marketplace.visualstudio.com/items?itemName=anthropic.claude-code).
+  Codex, Cursor, GitHub Copilot or any other assistant will also work.
+- Make an empty folder and open it in the assistant.
 
 ## Set up (once)
 
